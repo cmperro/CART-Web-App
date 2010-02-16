@@ -29,4 +29,18 @@ else{
 		echo "Sorry, there was a problem uploading your file";
 	}
 }
+
+require_once 'Classes/PHPExcel/IOFactory.php';
+
+$objReader = PHPExcel_IOFactory::createReader('Excel5');
+$objPHPExcel = $objReader->load($target);
+$val = ($objPHPExcel->getActiveSheet()->getCell('A1'));
+$temp = $val->getvalue();
+
+echo $temp
+
+
+
+
+
 ?>
