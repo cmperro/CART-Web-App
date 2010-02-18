@@ -1,7 +1,6 @@
-Hello World.
+As of 2/18, 12:13 AM
 
-Cooper at 1743
-
-Deniz was here!
-
-Now Chris has edited the README.
+Whenever you pull, be sure to:
+	chmod 777 accounts.txt
+	chmod 777 uploaded_spreadsheets
+		(Yes, I mean the directory uploaded_spreadsheets)
