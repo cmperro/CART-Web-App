@@ -38,10 +38,10 @@ $val = ($objPHPExcel->getActiveSheet()->getCell('A1'));
 $temp = $val->getvalue();
 
 $highestRow = $objPHPExcel->getActiveSheet()->getHighestRow();
+$highestCol = $objPHPExcel->getActiveSheet()->getHighestColumn();
+
 
 echo $highestRow;
-
-
-
+echo $highestCol;
 
 ?>
