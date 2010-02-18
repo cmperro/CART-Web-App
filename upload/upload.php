@@ -37,8 +37,9 @@ $objPHPExcel = $objReader->load($target);
 $val = ($objPHPExcel->getActiveSheet()->getCell('A1'));
 $temp = $val->getvalue();
 
-echo $temp
+$highestRow = $objPHPExcel->getActiveSheet()->getHighestRow();
 
+echo $highestRow;
 
 
 
