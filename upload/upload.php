@@ -35,13 +35,27 @@ require_once 'Classes/PHPExcel/IOFactory.php';
 $objReader = PHPExcel_IOFactory::createReader('Excel5');
 $objPHPExcel = $objReader->load($target);
 $val = ($objPHPExcel->getActiveSheet()->getCell('A1'));
-$temp = $val->getvalue();
+$temp1 = $val->getvalue();
 
 $highestRow = $objPHPExcel->getActiveSheet()->getHighestRow();
 $highestCol = $objPHPExcel->getActiveSheet()->getHighestColumn();
+$highestCol = PHPExcel_Cell::columnIndexFromString($highestCol);
+
+$startColumn = 'H';
+$startColumn = PHPExcel_Cell::columnIndexFromString($startColumn);
+
+$startRow = 5;
+
+for($row = $startRow; $row < $highestRow; $row++)
+{
+	for($col = $startColumn; $col < $highestCol; $col++)
+	{
+		 $temp = ($objPHPExcel->getActiveSheet()->getCellByColumnAndRow($col,$row)->getValue());
+		echo $temp;
+	}
+	echo "<br>";
+}
 
 
-echo $highestRow;
-echo $highestCol;
 
 ?>
