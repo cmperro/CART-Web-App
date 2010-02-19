@@ -63,15 +63,18 @@ for($col = $startColumn - 1; $col < $highestCol; $col++)
 	$answerKey[] = ($objPHPExcel->getActiveSheet()->getCellByColumnAndRow($col,4)->getValue());
 }
 
-print_r($answerKey);
+//print_r($answerKey);
 
 echo "<br>";
 
 
 $startRow = 5;
+$studentAns = array(array());
+
 
 for($row = $startRow; $row < $highestRow + 1; $row++)
 {
+	$ithStudent = array();
 	for($col = $startColumn - 1; $col < $highestCol; $col++)
 	{
 		 $temp = ($objPHPExcel->getActiveSheet()->getCellByColumnAndRow($col,$row)->getValue());
@@ -79,11 +82,18 @@ for($row = $startRow; $row < $highestRow + 1; $row++)
 		{
 			$temp = 'X';
 		}
-		echo $temp;
+		//echo $temp;
+		$ithStudent[] = $temp;
 	}
+	//echo "<br>";
+	$studentAns[] = $ithStudent;
+}
+/*
+$arrhigh = $highestRow - $startRow;
+for($k = 1; $k < $arrhigh + 2; $k++)
+{
+	print_r($studentAns[$k]);
 	echo "<br>";
 }
-
-
-
+*/
 ?>
