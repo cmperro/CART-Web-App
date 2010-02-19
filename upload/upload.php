@@ -1,6 +1,8 @@
 <?php
 $target = "uploaded_spreadsheets/";
 $target = $target . basename( $_FILES['uploaded']['name']);
+$COG = $_REQUEST['cutoff_grade'];
+$COP = $_REQUEST['cutoff_prob'];
 
 $uploaded_type = $_FILES['uploaded']['type'];
 
@@ -12,6 +14,19 @@ if (!($uploaded_type=="application/vnd.ms-excel"))
 	exit(1);
 }
 
+if ($COG < 0 || $COG > 100)
+{
+	echo "Please enter a valid cutoff grade, between 0 and 100.<br>";
+	echo "<a href='file_selection.php'>Please try again.</a>";
+	exit(1);
+}
+
+if ($COP < 0 || $COP > 100)
+{
+	echo "Please enter a valid cutoff probability, between 0 and 100.<br>";
+	echo "<a href='file_selection.php'>Please try again.</a>";
+	exit(1);
+}
 
 else{
 	if(move_uploaded_file($_FILES['uploaded']['tmp_name'], $target))
