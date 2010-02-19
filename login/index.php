@@ -38,6 +38,7 @@ h3 {
 
 <?php
 error_reporting(E_ALL);
+
 if( isset($_POST['user']) && isset($_POST['pass']) )
 {
    $username = $_POST['user'];
@@ -55,7 +56,8 @@ if( isset($_POST['user']) && isset($_POST['pass']) )
    if($loginSuccess) {
       echo "Success!";
       $_SESSION['loggedInAs'] = $username;
-      echo "<script type='text/javaScript'>window.location='protected.php';</script>";
+      echo "<script type='text/javaScript'>window.location=".
+           "'protected.php';</script>";
       }
    else echo "invalid combination";
 }
