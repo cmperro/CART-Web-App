@@ -44,6 +44,19 @@ $highestCol = PHPExcel_Cell::columnIndexFromString($highestCol);
 $startColumn = 'H';
 $startColumn = PHPExcel_Cell::columnIndexFromString($startColumn);
 
+
+$answerKey = array();
+
+for($col = $startColumn - 1; $col < $highestCol; $col++)
+{
+	$answerKey[] = ($objPHPExcel->getActiveSheet()->getCellByColumnAndRow($col,4)->getValue());
+}
+
+print_r($answerKey);
+
+echo "<br>";
+
+
 $startRow = 5;
 
 for($row = $startRow; $row < $highestRow + 1; $row++)
