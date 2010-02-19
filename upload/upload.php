@@ -7,7 +7,8 @@ $uploaded_type = $_FILES['uploaded']['type'];
 if (!($uploaded_type=="application/vnd.ms-excel"))
 {
 	echo "You may only upload XLS files.<br>";
-	echo "Sorry your file was not uploaded.";
+	echo "Sorry your file was not uploaded.<br>";
+	echo "<a href='file_selection.php'>Please try again.</a>";
 	exit(1);
 }
 
