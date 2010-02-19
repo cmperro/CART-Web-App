@@ -46,11 +46,15 @@ $startColumn = PHPExcel_Cell::columnIndexFromString($startColumn);
 
 $startRow = 5;
 
-for($row = $startRow; $row < $highestRow; $row++)
+for($row = $startRow; $row < $highestRow + 1; $row++)
 {
-	for($col = $startColumn; $col < $highestCol; $col++)
+	for($col = $startColumn - 1; $col < $highestCol; $col++)
 	{
 		 $temp = ($objPHPExcel->getActiveSheet()->getCellByColumnAndRow($col,$row)->getValue());
+		if($temp == NULL)
+		{
+			$temp = 'X';
+		}
 		echo $temp;
 	}
 	echo "<br>";
