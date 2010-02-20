@@ -47,7 +47,7 @@ if( $loggedInAs == "admin" ) {
 //collect input username 
 @$user = $_POST['user'];
 
-//make sure new usename is at least one char long 
+//make sure new username is at least one char long 
 //and that the passwords match
 if( (strlen($user) > 0) && (strlen($_POST['pass']) > 0) && 
           ($_POST['pass'] == $_POST['passcopy']) )
@@ -56,7 +56,7 @@ if( (strlen($user) > 0) && (strlen($_POST['pass']) > 0) &&
    $uniqueUser = true;
    $validUser = true;
 
-   //test that username doesnt contain ::
+   //test that username doesn't contain ::
    //password can contain all characters because its encrypted
    if( substr_count($user, "::") > 0 ) $validUser = false;
 

@@ -2,7 +2,7 @@
 <body>
 
 
-
+<!-- This is the page the user sees when uploading a file. -->
 <form enctype="multipart/form-data" action="upload.php" method="POST">
 <table>
 <tr>
