@@ -42,7 +42,7 @@ if(isset($_SESSION['loggedInAs']))
   <a href="signout.php">signout</a><br><br>
 
   <!--upload interface-->
-  <form enctype="multipart/form-data" action="upload.php" method="POST">
+  <form enctype="multipart/form-data" action="../upload/upload.php" method="POST">
   <table>
   <tr>
   <td>Please choose a file:</td><td><input name="uploaded" type="file" /></td>
