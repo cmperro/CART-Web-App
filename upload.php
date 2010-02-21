@@ -23,21 +23,21 @@ if (!($uploaded_type=="application/vnd.ms-excel"))
 {
 	echo "You may only upload XLS files.<br>";
 	echo "Sorry your file was not uploaded.<br>";
-	echo "<a href='../login/protected.php'>Please try again.</a>";
+	echo "<a href='protected.php'>Please try again.</a>";
 	exit(1);
 }
 
-if ($COG < 0 || $COG > 100)
+if ($COG < 0 || $COG > 100 || strlen($COG) < 1)
 {
 	echo "Please enter a valid cutoff grade, between 0 and 100.<br>";
-	echo "<a href='../login/protected.php'>Please try again.</a>";
+	echo "<a href='protected.php'>Please try again.</a>";
 	exit(1);
 }
 
-if ($COP < 0 || $COP > 100)
+if ($COP < 0 || $COP > 100 || strlen($COP) < 1)
 {
 	echo "Please enter a valid cutoff probability, between 0 and 100.<br>";
-	echo "<a href='../login/protected.php'>Please try again.</a>";
+	echo "<a href='protected.php'>Please try again.</a>";
 	exit(1);
 }
 
@@ -54,7 +54,7 @@ else{
 	}
 }
 
-require_once 'Classes/PHPExcel/IOFactory.php';
+require_once 'includes/phpExcel/Classes/PHPExcel/IOFactory.php';
 
 //Set-up a reader to parse the recently uploaded Excel Spreadsheet
 $objReader = PHPExcel_IOFactory::createReader('Excel5');
