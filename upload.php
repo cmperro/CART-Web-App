@@ -21,9 +21,11 @@ $COG = $_REQUEST['cutoff_grade'];
 $COP = $_REQUEST['cutoff_prob'];
 $uploaded_type = $_FILES['uploaded']['type'];
 
-//Various Error check, i.e. if the document uploaded is indeed
-//a 2003 Excel Spreadsheet, and making sure the two cuttoffs
-//are in the acceptable range
+require_once 'includes/phpExcel/Classes/PHPExcel/IOFactory.php';
+include 'includes/minegrades.php';
+
+//Error check if the document uploaded is indeed
+//a 2003 Excel Spreadshee
 if (!($uploaded_type=="application/vnd.ms-excel"))
 {
 	echo "You may only upload XLS files.<br>";
@@ -32,9 +34,28 @@ if (!($uploaded_type=="application/vnd.ms-excel"))
 	exit(1);
 }
 
-if ($COG < 0 || $COG > 100 || strlen($COG) < 1)
+//Set-up a reader to parse the recently uploaded Excel Spreadsheet
+$objReader = PHPExcel_IOFactory::createReader('Excel5');
+$objPHPExcel = $objReader->load($target);
+//$val = ($objPHPExcel->getActiveSheet()->getCell('A1'));
+//$temp1 = $val->getvalue();
+
+//Ascertain the last filled Row and Column. This dynamically figures out how many students took
+//the test and how many questions the test was. This way the user doesn't need to be asked these
+//particulars
+$highestRow = $objPHPExcel->getActiveSheet()->getHighestRow();
+$highestCol = $objPHPExcel->getActiveSheet()->getHighestColumn();
+//Convert String Column to Int
+$highestCol = PHPExcel_Cell::columnIndexFromString($highestCol);
+//Hard-coded position of what column student answers start. This is the same for every sheet
+$startColumn = 'H';
+$startColumn = PHPExcel_Cell::columnIndexFromString($startColumn);
+
+//$numQuestions = $highestCol - 7;
+//Error check if the two cutoffs are in the acceptable range
+if ($COG < 0 || $COG > ($highestCol - 7) || strlen($COG) < 1)
 {
-	echo "Please enter a valid cutoff grade (NOT percentage, but the number), between 0 and 100.<br>";
+	echo "Please enter a valid cutoff grade (NOT percentage, but the number), between 0 and ".($highestCol - 7).".<br>";
 	echo "<a href='protected.php'>Please try again.</a>";
 	exit(1);
 }
@@ -58,29 +79,6 @@ else{
 		echo "Sorry, there was a problem uploading your file";
 	}
 }
-
-require_once 'includes/phpExcel/Classes/PHPExcel/IOFactory.php';
-include 'includes/minegrades.php';
-
-//Set-up a reader to parse the recently uploaded Excel Spreadsheet
-$objReader = PHPExcel_IOFactory::createReader('Excel5');
-$objPHPExcel = $objReader->load($target);
-//$val = ($objPHPExcel->getActiveSheet()->getCell('A1'));
-//$temp1 = $val->getvalue();
-
-//Ascertain the last filled Row and Column. This dynamically figures out how many students took
-//the test and how many questions the test was. This way the user doesn't need to be asked these
-//particulars
-$highestRow = $objPHPExcel->getActiveSheet()->getHighestRow();
-$highestCol = $objPHPExcel->getActiveSheet()->getHighestColumn();
-//Convert String Column to Int
-$highestCol = PHPExcel_Cell::columnIndexFromString($highestCol);
-//Hard-coded position of what column student answers start. This is the same for every sheet
-$startColumn = 'H';
-$startColumn = PHPExcel_Cell::columnIndexFromString($startColumn);
-
-
-
 
 //Set up and populate the Answer Key Array.
 $answerKey = array();
