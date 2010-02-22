@@ -127,9 +127,9 @@ print($stats->message() . "\n");
 
 
 
-echo "<pre>";
-$stats->printout(0);
-echo "</pre>";
+//echo "<pre>";
+$stats->printHTML(0);
+//echo "</pre>";
 
 
 ?>

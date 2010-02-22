@@ -85,8 +85,8 @@ if( (strlen($user) > 0) && (strlen($_POST['pass']) > 0) &&
    }
    //username is already taken
    if( !$uniqueUser ) {
-                        echo "The username is taken. ".
-                        "<small><a href='createLogin.php'>again</a></small>";
+      echo "The username is taken. ".
+           "<small><a href='createLogin.php'>again</a></small>";
    }
 }
 

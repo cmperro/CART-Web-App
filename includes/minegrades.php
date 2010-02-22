@@ -52,6 +52,19 @@ EOT;
         if ($this->right != null) $this->right->printout($indent+2);
         if ($this->wrong != null) $this->wrong->printout($indent+2);
     }
+    public function printHTML($indent)
+    {
+        echo "<table border=1>";
+        echo "<tr><td colspan=2 align=center valign=top>"; 
+        print(preg_replace("/\n/", "<br>", $this->message()));
+        echo "</td></tr>";
+        echo "<tr><td align=center valign=top>";
+        if ($this->right != null) $this->right->printHTML($indent+2);
+        echo "</td><td align=center valign=top>";
+        if ($this->wrong != null) $this->wrong->printHTML($indent+2);
+        echo "</td></tr>";
+        echo "</table>";
+    }
 }
  
 class GradeDecisionTreeInternal extends GradeDecisionTree
