@@ -21,18 +21,46 @@ $COG = $_REQUEST['cutoff_grade'];
 $COP = $_REQUEST['cutoff_prob'];
 $uploaded_type = $_FILES['uploaded']['type'];
 
-require_once 'includes/phpExcel/Classes/PHPExcel/IOFactory.php';
-include 'includes/minegrades.php';
-
-//Error check if the document uploaded is indeed
-//a 2003 Excel Spreadshee
+//Various Error check, i.e. if the document uploaded is indeed
+//a 2003 Excel Spreadsheet, and making sure the two cuttoffs
+//are in the acceptable range.
 if (!($uploaded_type=="application/vnd.ms-excel"))
 {
-	echo "You may only upload XLS files.<br>";
-	echo "Sorry your file was not uploaded.<br>";
-	echo "<a href='protected.php'>Please try again.</a>";
-	exit(1);
+        echo "You may only upload XLS files.<br>";
+        echo "Sorry your file was not uploaded.<br>";
+        echo "<a href='protected.php'>Please try again.</a>";
+        exit(1);
 }
+
+if ($COG < 0 || $COG > 100 || strlen($COG) < 1)
+{
+        echo "Please enter a valid cutoff grade (NOT percentage, but the number), between 0 and 100.<br>";
+        echo "<a href='protected.php'>Please try again.</a>";
+        exit(1);
+}
+
+if ($COP < 0 || $COP > 1 || strlen($COP) < 1)
+{
+        echo "Please enter a valid cutoff probability, between 0 and 1.<br>";
+        echo "<a href='protected.php'>Please try again.</a>";
+        exit(1);
+}
+
+else{
+        if(move_uploaded_file($_FILES['uploaded']['tmp_name'], $target))
+        {
+                echo "The file ". basename( $_FILES['uploaded']['name']). " has been uploaded <a href='".$target."'>view</a><br>";
+                echo "Cuttoff-grade = ".$_REQUEST['cutoff_grade']."<br>";
+                echo "Cuttoff-probability = ".$_REQUEST['cutoff_prob']."<br>";
+        }
+        else
+        {
+                echo "Sorry, there was a problem uploading your file";
+        }
+}
+
+require_once 'includes/phpExcel/Classes/PHPExcel/IOFactory.php';
+include 'includes/minegrades.php';
 
 //Set-up a reader to parse the recently uploaded Excel Spreadsheet
 $objReader = PHPExcel_IOFactory::createReader('Excel5');
@@ -51,41 +79,15 @@ $highestCol = PHPExcel_Cell::columnIndexFromString($highestCol);
 $startColumn = 'H';
 $startColumn = PHPExcel_Cell::columnIndexFromString($startColumn);
 
-//$numQuestions = $highestCol - 7;
-//Error check if the two cutoffs are in the acceptable range
-if ($COG < 0 || $COG > ($highestCol - 7) || strlen($COG) < 1)
-{
-	echo "Please enter a valid cutoff grade (NOT percentage, but the number), between 0 and ".($highestCol - 7).".<br>";
-	echo "<a href='protected.php'>Please try again.</a>";
-	exit(1);
-}
 
-if ($COP < 0 || $COP > 1 || strlen($COP) < 1)
-{
-	echo "Please enter a valid cutoff probability, between 0 and 1.<br>";
-	echo "<a href='protected.php'>Please try again.</a>";
-	exit(1);
-}
 
-else{
-	if(move_uploaded_file($_FILES['uploaded']['tmp_name'], $target))
-	{
-		echo "The file ". basename( $_FILES['uploaded']['name']). " has been uploaded <a href='".$target."'>view</a><br>";
-                echo "Cuttoff-grade = ".$_REQUEST['cutoff_grade']."<br>";
-                echo "Cuttoff-probability = ".$_REQUEST['cutoff_prob']."<br>";
-	}
-	else
-	{
-		echo "Sorry, there was a problem uploading your file";
-	}
-}
 
 //Set up and populate the Answer Key Array.
 $answerKey = array();
 
 for($col = $startColumn - 1; $col < $highestCol; $col++)
 {
-	$answerKey[] = ($objPHPExcel->getActiveSheet()->getCellByColumnAndRow($col,4)->getValue());
+        $answerKey[] = ($objPHPExcel->getActiveSheet()->getCellByColumnAndRow($col,4)->getValue());
 }
 
 //print_r($answerKey);
@@ -99,19 +101,19 @@ $studentAns = array(array());
 
 for($row = $startRow; $row < $highestRow + 1; $row++)
 {
-	$ithStudent = array();
-	for($col = $startColumn - 1; $col < $highestCol; $col++)
-	{
-		 $temp = ($objPHPExcel->getActiveSheet()->getCellByColumnAndRow($col,$row)->getValue());
-		if($temp == NULL)
-		{
-			$temp = 'X';
-		}
-		//echo $temp;
-		$ithStudent[] = $temp;
-	}
-	//echo "<br>";
-	$studentAns[] = $ithStudent;
+        $ithStudent = array();
+        for($col = $startColumn - 1; $col < $highestCol; $col++)
+        {
+                 $temp = ($objPHPExcel->getActiveSheet()->getCellByColumnAndRow($col,$row)->getValue());
+                if($temp == NULL)
+                {
+                        $temp = 'X';
+                }
+                //echo $temp;
+                $ithStudent[] = $temp;
+        }
+        //echo "<br>";
+        $studentAns[] = $ithStudent;
 }
 
 //Test Routine - To Be Deleted
@@ -119,8 +121,8 @@ for($row = $startRow; $row < $highestRow + 1; $row++)
 $arrhigh = $highestRow - $startRow;
 for($k = 1; $k < $arrhigh + 2; $k++)
 {
-	print_r($studentAns[$k]);
-	echo "<br>";
+        print_r($studentAns[$k]);
+        echo "<br>";
 }
 */
 
