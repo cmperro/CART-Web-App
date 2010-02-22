@@ -142,9 +142,9 @@ function breakTree($tree, $qcutoff, $ncutoff)
                 + $wentropy * count($wrong) / $numss;
  
         $gain = $currententropy - $newe;
-        if ($q == 12) {
-            print("$q $gain $newe $currententropy $numss $rentropy $wentropy \n");
-        }
+        //if ($q == 12) {
+          //  print("$q $gain $newe $currententropy $numss $rentropy $wentropy \n");
+       // }
  
         if ($gain >= $bestinfogain) {
             $bestinfogain = $gain;
