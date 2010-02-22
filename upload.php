@@ -5,7 +5,7 @@
 <?php
 /**
 *************************************************************
-*This script takes the uploaded file and does work.           *
+*This script takes the Uuploaded file and does work.          *
 *More specifically, it saves the spreadsheet in a local       *
 *directory, checks to make sure that the user didn't enter    *
 *absurd cuttoff ranges, and then proceeds to read from the    *
