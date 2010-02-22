@@ -29,14 +29,14 @@ if (!($uploaded_type=="application/vnd.ms-excel"))
 
 if ($COG < 0 || $COG > 100 || strlen($COG) < 1)
 {
-	echo "Please enter a valid cutoff grade, between 0 and 100.<br>";
+	echo "Please enter a valid cutoff grade (NOT percentage), between 0 and 100.<br>";
 	echo "<a href='protected.php'>Please try again.</a>";
 	exit(1);
 }
 
-if ($COP < 0 || $COP > 100 || strlen($COP) < 1)
+if ($COP < 0 || $COP > 1 || strlen($COP) < 1)
 {
-	echo "Please enter a valid cutoff probability, between 0 and 100.<br>";
+	echo "Please enter a valid cutoff probability, between 0 and 1.<br>";
 	echo "<a href='protected.php'>Please try again.</a>";
 	exit(1);
 }
@@ -55,6 +55,7 @@ else{
 }
 
 require_once 'includes/phpExcel/Classes/PHPExcel/IOFactory.php';
+include 'includes/minegrades.php';
 
 //Set-up a reader to parse the recently uploaded Excel Spreadsheet
 $objReader = PHPExcel_IOFactory::createReader('Excel5');
@@ -120,4 +121,7 @@ for($k = 1; $k < $arrhigh + 2; $k++)
 	echo "<br>";
 }
 */
+
+$stats = mineGrades($COG, $COP, $answerKey, $studentAns);
+print($stats->message() . "\n");
 ?>
