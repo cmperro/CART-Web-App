@@ -123,4 +123,5 @@ for($k = 1; $k < $arrhigh + 2; $k++)
 */
 
 $stats = mineGrades($COG, $COP, $answerKey, $studentAns);
+print($stats->message() . "\n");
 ?>
