@@ -52,6 +52,7 @@ EOT;
         if ($this->right != null) $this->right->printout($indent+2);
         if ($this->wrong != null) $this->wrong->printout($indent+2);
     }
+    //prints out the tree in a table format
     public function printHTML($indent)
     {
         echo "<table border=1>";
