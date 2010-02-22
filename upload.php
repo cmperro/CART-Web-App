@@ -1,19 +1,19 @@
 <html>
 <head>
+<title>Results</title>
 </head>
 <body>
 <?php
 /**
-*************************************************************
-*This script takes the Uuploaded file and does work.          *
-*More specifically, it saves the spreadsheet in a local       *
-*directory, checks to make sure that the user didn't enter    *
-*absurd cuttoff ranges, and then proceeds to read from the    *
-*uploaded excel spreadsheet. The answer key is saved in an    *
-*array. The student answers are then parsed and placed into   *
-*a two dimensional array.                                     *
-**************************************************************/
-
+*<p>
+*This script takes the uploaded file and does work.<br>
+*More specifically, it saves the spreadsheet in a local<br>
+*directory, checks to make sure that the user didn't enter<br>
+*absurd cuttoff ranges, and then proceeds to read from the<br>
+*uploaded excel spreadsheet. The answer key is saved in an<br>
+*array. The student answers are then parsed and placed into<br>
+*a two dimensional array.<br>
+*/
 
 $target = "uploaded_spreadsheets/";
 $target = $target . basename( $_FILES['uploaded']['name']);
@@ -34,7 +34,7 @@ if (!($uploaded_type=="application/vnd.ms-excel"))
 
 if ($COG < 0 || $COG > 100 || strlen($COG) < 1)
 {
-	echo "Please enter a valid cutoff grade (NOT percentage), between 0 and 100.<br>";
+	echo "Please enter a valid cutoff grade (NOT percentage, but the number), between 0 and 100.<br>";
 	echo "<a href='protected.php'>Please try again.</a>";
 	exit(1);
 }
@@ -67,7 +67,6 @@ $objReader = PHPExcel_IOFactory::createReader('Excel5');
 $objPHPExcel = $objReader->load($target);
 //$val = ($objPHPExcel->getActiveSheet()->getCell('A1'));
 //$temp1 = $val->getvalue();
-
 
 //Ascertain the last filled Row and Column. This dynamically figures out how many students took
 //the test and how many questions the test was. This way the user doesn't need to be asked these
