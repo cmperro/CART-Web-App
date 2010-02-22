@@ -1,3 +1,7 @@
+<html>
+<head>
+</head>
+<body>
 <?php
 /**************************************************************
 *This script takes the uploaded file and does work.           *
@@ -126,10 +130,11 @@ $stats = mineGrades($COG, $COP, $answerKey, $studentAns);
 print($stats->message() . "\n");
 
 
-
 //echo "<pre>";
 $stats->printHTML(0);
 //echo "</pre>";
 
-
 ?>
+
+</body>
+</html>
