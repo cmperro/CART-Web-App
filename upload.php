@@ -21,27 +21,12 @@ $COG = $_REQUEST['cutoff_grade'];
 $COP = $_REQUEST['cutoff_prob'];
 $uploaded_type = $_FILES['uploaded']['type'];
 
-//Various Error check, i.e. if the document uploaded is indeed
-//a 2003 Excel Spreadsheet, and making sure the two cuttoffs
-//are in the acceptable range.
+//Error check if the document uploaded is indeed
+//a 2003 Excel Spreadsheet
 if (!($uploaded_type=="application/vnd.ms-excel"))
 {
         echo "You may only upload XLS files.<br>";
         echo "Sorry your file was not uploaded.<br>";
-        echo "<a href='protected.php'>Please try again.</a>";
-        exit(1);
-}
-
-if ($COG < 0 || $COG > 100 || strlen($COG) < 1)
-{
-        echo "Please enter a valid cutoff grade (NOT percentage, but the number), between 0 and 100.<br>";
-        echo "<a href='protected.php'>Please try again.</a>";
-        exit(1);
-}
-
-if ($COP < 0 || $COP > 1 || strlen($COP) < 1)
-{
-        echo "Please enter a valid cutoff probability, between 0 and 1.<br>";
         echo "<a href='protected.php'>Please try again.</a>";
         exit(1);
 }
@@ -75,12 +60,25 @@ $highestRow = $objPHPExcel->getActiveSheet()->getHighestRow();
 $highestCol = $objPHPExcel->getActiveSheet()->getHighestColumn();
 //Convert String Column to Int
 $highestCol = PHPExcel_Cell::columnIndexFromString($highestCol);
-//Hard-coded position of what column student answers start. This is the same for every sheet
+//Hard-coded position of what column student answers start. This is the same for every sheet.
 $startColumn = 'H';
 $startColumn = PHPExcel_Cell::columnIndexFromString($startColumn);
 
+//numQuestions = (&highestCol - 7);//number of questions
+//Error check if the input cutoff values are allowable
+if ($COG < 0 || $COG > ($highestCol - 7) || strlen($COG) < 1)
+{
+        echo "Please enter a valid cutoff grade (NOT percentage, but the number), between 0 and ".($highestCol - 7).".<br>";
+        echo "<a href='protected.php'>Please try again.</a>";
+        exit(1);
+}
 
-
+if ($COP < 0 || $COP > 1 || strlen($COP) < 1)
+{
+        echo "Please enter a valid cutoff probability, between 0 and 1.<br>";
+        echo "<a href='protected.php'>Please try again.</a>";
+        exit(1);
+}
 
 //Set up and populate the Answer Key Array.
 $answerKey = array();
