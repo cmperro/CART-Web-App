@@ -1,11 +1,11 @@
 <?php
 session_start();
-?>
 /**
 * <p>
 * Checks for successful login and redirects accordingly
 * </p>
 */
+?>
 <html>
 <head>
 <style>
