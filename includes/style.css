@@ -1,3 +1,6 @@
+/*stylesheet for the CART-Web-App*/
+
+/*style generic tages*/
 body {
    text-align:center;}
 
@@ -16,9 +19,7 @@ a, a:link , a:visited, a:active {
    font-size:10pt;
    color: #333366;}
 
-.go {
-   border:1px solid #999999;}
-
+/*style divs*/
 #wrapper {
    margin: 100px auto;
    text-align:center;}
@@ -36,11 +37,11 @@ a, a:link , a:visited, a:active {
    margin:15px;}
 
 #top {
-   text-align:right;}
+   text-align:right;
+   font-size:10pt;
+   color: #333366;}
 
-#link {
-   float:right;
-   margin:5px;
-   font-family:verdana;
-   font-size:8pt;}
+/*style input buttons with go class*/
+.go {
+   border:1px solid #999999;}
 

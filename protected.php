@@ -19,9 +19,8 @@ if(isset($_SESSION['loggedInAs']))
 {
   ?>
   <div id="top">
-  
   <!--addUser link for admin-->
-  <?php if($_SESSION['loggedInAs'] == "admin") echo "<a href='createLogin.php'>add users</a>"; ?>
+  <?php if($_SESSION['loggedInAs'] == "admin") echo "<a href='createLogin.php'>add users</a> | "; ?>
 
   <!--link to signout-->
   <a href="signout.php">signout</a>
