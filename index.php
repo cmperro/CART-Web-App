@@ -6,12 +6,22 @@ session_start();
 <style>
 </style>
 <link rel="styleSheet" type="text/css" href="includes/style.css" />
+<script type="text/javaScript" src="includes/ajaxRequest/request.js">
+</script>
+<script type="text/javaScript">
+function requestAccess() {
+   var email = prompt("Please enter your email address");
+   if (email!=null && email!="") {
+      sendRequest(email); 
+   }
+}
+</script>
 </head>
 <body>
 
 <div id="wrapper" style="width:342px;">
 
-<div id="top"></div>
+<div id="top"><a href="javascript:void(0);" onClick="requestAccess()">request access</a></div>
 
 <div id="content" style="width:340px;">
   <div id="holder">
@@ -52,6 +62,8 @@ if( isset($_POST['user']) && isset($_POST['pass']) )
          break;
       }
    }
+    //if the attempt is successful
+    //begin a session and redirect user 
    if($loginSuccess) {
       echo "Success!";
       $_SESSION['loggedInAs'] = $username;
@@ -61,8 +73,8 @@ if( isset($_POST['user']) && isset($_POST['pass']) )
    else echo "invalid combination";
 }
 ?>
-</div>
-</div>
+</div><!--close holder-->
+</div><!--close content-->
 </div><!-- close wrapper -->
 </body>
 </html>
