@@ -59,16 +59,16 @@ EOT;
         if ($this->wrong != null) $this->wrong->printout($indent+2);
     }
     //prints out the tree in a table format
-    public function printHTML($indent)
+    public function printHTML()
     {
         echo "<table border=1>\n";
         echo "<tr><td colspan=2 align=center valign=top>\n"; 
         print(preg_replace("/\n/", "<br>", $this->message()));
         echo "</td></tr>\n";
         echo "<tr><td align=center valign=top>\n";
-        if ($this->right != null) $this->right->printHTML($indent+2);
+        if ($this->right != null) $this->right->printHTML();
         echo "</td><td align=center valign=top>\n";
-        if ($this->wrong != null) $this->wrong->printHTML($indent+2);
+        if ($this->wrong != null) $this->wrong->printHTML();
         echo "</td></tr>\n";
         echo "</table>\n";
     }
