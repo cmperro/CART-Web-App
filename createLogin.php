@@ -1,11 +1,11 @@
 <?php
 session_start();
-?>
 /**
 * <p>
 * Creates a Login for a user to be stored as an administrator
 * </p>
 */
+?>
 <html>
 <head>
 <style>
