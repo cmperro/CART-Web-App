@@ -12,6 +12,8 @@ require_once('./classes/GDRenderer.php');
 //create new GD renderer, optinal parameters: LevelSeparation,  SiblingSeparation, SubtreeSeparation, defaultNodeWidth, defaultNodeHeight
 $objTree = new GDRenderer(30, 10, 30, 100, 20);
 
+
+
 //add nodes to the tree, parameters: id, parentid optional text, width, height, image(path)
 $objTree->add(1,0,'species', 90);
 $objTree->add(2,1,'plants');
