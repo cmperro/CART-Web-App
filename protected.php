@@ -46,8 +46,14 @@ if(isset($_SESSION['loggedInAs']))
 }
 
 //require a user to sign in
-else
-   echo "You must <a href='index.php'>sign in</a> to view this content.";
+else {
+   ?>
+   <div id="content">
+   <div id="holder">
+   You must <a href="index.php">sign in</a> to view this content.
+   
+  <?php
+}
 
 ?>
 </div><!--close holder-->
