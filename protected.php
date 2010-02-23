@@ -9,7 +9,8 @@ session_start();
 </head>
 <body>
 
-<div id="wrapper" style="width:600px;">
+<div id="wrapper" style="width:602px;">
+
 <?php
 error_reporting(E_ALL);
 
@@ -17,14 +18,18 @@ error_reporting(E_ALL);
 if(isset($_SESSION['loggedInAs'])) 
 {
   ?>
-  Welcome to protected area, <i><?php echo $_SESSION['loggedInAs']; ?></i><br>
+  <div id="top">
   
   <!--addUser link for admin-->
   <?php if($_SESSION['loggedInAs'] == "admin") echo "<a href='createLogin.php'>add users</a>"; ?>
 
   <!--link to signout-->
-  <a href="signout.php">signout</a><br><br>
+  <a href="signout.php">signout</a>
+  </div>
 
+<div id="content" style="width:600px;">
+  <div id="holder">
+ <h3>Welcome to protected area, <i><?php echo $_SESSION['loggedInAs']; ?></i></h3>
 <!-- This is the page the user sees when uploading a file. -->
 <form enctype="multipart/form-data" action="upload.php" method="POST">
 <table>
@@ -46,7 +51,8 @@ else
    echo "You must <a href='index.php'>sign in</a> to view this content.";
 
 ?>
-</div>
-
+</div><!--close holder-->
+</div><!--close content-->
+</div><!--close wrapper-->
 </body>
 </html>

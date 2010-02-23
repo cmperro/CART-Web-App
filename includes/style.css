@@ -11,18 +11,32 @@ input {
    background: #ffffff;
    border:1px solid #999999;}
 
+a, a:link , a:visited, a:active {
+   text-decoration:none;
+   font-size:10pt;
+   color: #333366;}
+
 .go {
    border:1px solid #999999;}
 
 #wrapper {
    margin: 100px auto;
+   text-align:center;}
+
+#content {
+   padding: 0px; 
+   margin: 0px;
    background: #eeeeee;
    text-align:left;
    border: 1px solid #cccccc;
-   /* width:600px; */
-   padding: 10px;
    font-family: verdana;
    font-size:12pt;}
+
+#holder {
+   margin:15px;}
+
+#top {
+   text-align:right;}
 
 #link {
    float:right;

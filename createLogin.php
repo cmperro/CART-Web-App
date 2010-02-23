@@ -9,10 +9,13 @@ session_start();
 </head>
 <body>
 
-<div id="wrapper" style="width:325px;">
-  <div id="link">
+<div id="wrapper" style="width:327px;">
+  <div id="top">
     <a href="protected.php">back</a>
   </div>
+ 
+  <div id="content" style="width:325px;">
+  <div id="holder">
 <h3>Create Account</h3>
 
 <?php
@@ -88,7 +91,9 @@ else
 else echo "You must be the administrator to view this page";
 ?>
 
-</div>
+</div><!--close holder-->
+</div><!--close content-->
+</div><!--close wrapper-->
 
 </body>
 </html>

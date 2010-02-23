@@ -9,7 +9,12 @@ session_start();
 </head>
 <body>
 
-<div id="wrapper" style="width:310px;">
+<div id="wrapper" style="width:342px;">
+
+<div id="top"></div>
+
+<div id="content" style="width:340px;">
+  <div id="holder">
   <h3>User Authentication</h3>
   <form action="index.php" method="POST">
   <table>
@@ -56,8 +61,8 @@ if( isset($_POST['user']) && isset($_POST['pass']) )
    else echo "invalid combination";
 }
 ?>
-
 </div>
-
+</div>
+</div><!-- close wrapper -->
 </body>
 </html>
