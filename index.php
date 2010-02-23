@@ -22,6 +22,17 @@ session_start();
 <?php
 error_reporting(E_ALL);
 
+//redirect a signed in user to the protected page
+if( isset($_SESSION['loggedInAs']) ) 
+{
+  ?>
+  <script type="text/javaScript">
+  window.location="protected.php";
+  </script>
+  <?php
+}
+
+//check if user attempted a login
 if( isset($_POST['user']) && isset($_POST['pass']) )
 {
    $username = $_POST['user'];
@@ -45,7 +56,6 @@ if( isset($_POST['user']) && isset($_POST['pass']) )
    else echo "invalid combination";
 }
 ?>
-
 
 </div>
 
