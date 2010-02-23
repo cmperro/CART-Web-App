@@ -15,7 +15,7 @@ session_start();
   <table>
   <tr><td>username:</td><td><input type="text" name="user" /></td></tr>
   <tr><td>password</td><td><input type="password" name="pass" /></td></tr>
-  <tr><td></td><td><input type="submit" value="submit" id="go"/></td></tr>
+  <tr><td></td><td><input type="submit" value="submit" class="go"/></td></tr>
   </table>
   </form>
 
