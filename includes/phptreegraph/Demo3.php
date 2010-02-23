@@ -14,12 +14,12 @@ require_once('./classes/GDRenderer.php');
 $objTree = new GDRenderer(20, 20, 40, 175, 20);
 
 
-
 //add nodes to the tree, parameters: id, parentid optional text, width, height, image(path)
 $objTree->add(1,0,'102 Students total');
-$objTree->add(2,1,'54 passed / 48 failed');
-$objTree->add(3,2,'They got 2 right');
-$objTree->add(4,2,'They got 2 wrong');
+$objTree->add(2,1,'54 passed (60%)');
+$objTree->add(15,2,'48 failed (40%)');
+$objTree->add(3,15,'They got 2 right');
+$objTree->add(4,15,'They got 2 wrong');
 $objTree->add(5,3,'47 passed / 12 failed');
 $objTree->add(6,4,'7 passed / 36 failed');
 $objTree->add(7,5,'They got 9 right');
