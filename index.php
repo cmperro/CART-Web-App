@@ -1,6 +1,11 @@
 <?php
 session_start();
 ?>
+/**
+* <p>
+* Checks for successful login and redirects accordingly
+* </p>
+*/
 <html>
 <head>
 <style>
@@ -37,7 +42,10 @@ function requestAccess() {
 <?php
 error_reporting(E_ALL);
 
-//redirect a signed in user to the protected page
+/**
+* Redirect a signed in user to the protected page
+* @link protected.php
+*/
 if( isset($_SESSION['loggedInAs']) ) 
 {
   ?>
@@ -62,8 +70,10 @@ if( isset($_POST['user']) && isset($_POST['pass']) )
          break;
       }
    }
-    //if the attempt is successful
-    //begin a session and redirect user 
+    /**
+    * If login attempt is successful, begin session and redirect
+    * @link protected.php 
+    */ 
    if($loginSuccess) {
       echo "Success!";
       $_SESSION['loggedInAs'] = $username;

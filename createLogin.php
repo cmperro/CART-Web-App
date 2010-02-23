@@ -1,12 +1,11 @@
+<?php
+session_start();
+?>
 /**
 * <p>
 * Creates a Login for a user to be stored as an administrator
 * </p>
 */
-
-<?php
-session_start();
-?>
 <html>
 <head>
 <style>
@@ -26,10 +25,7 @@ session_start();
 
 <?php
 error_reporting(E_ALL);
-/**
-* retrieve current user name
-*
-*/
+//retrieve current user name
 @$loggedInAs = $_SESSION['loggedInAs'];
 
 //allow only admin access

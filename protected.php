@@ -1,6 +1,12 @@
 <?php
 session_start();
 ?>
+/**
+*<p>
+* Protected page that makes sure a user is signed in. <br />
+* Allows the process to upload a file to be parsed. <br />
+*</p>
+*/
 <html>
 <head>
 <style>
@@ -19,7 +25,7 @@ if(isset($_SESSION['loggedInAs']))
 {
   ?>
   <div id="top">
-  <!--addUser link for admin-->
+  <!--AddUser Link for Admin--> 
   <?php if($_SESSION['loggedInAs'] == "admin") echo "<a href='createLogin.php'>add users</a> | "; ?>
 
   <!--link to signout-->
