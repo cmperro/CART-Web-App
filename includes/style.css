@@ -1,0 +1,28 @@
+body {
+   text-align:center;}
+
+h3 {
+   font-family:verdana;
+   font-size:14pt;
+   font-weight:800;
+   color: #333333;}
+
+#go {
+   border:1px solid #999999;}
+
+#wrapper {
+   margin: 100px auto;
+   background: #eeeeee;
+   text-align:left;
+   border: 1px solid #cccccc;
+   /* width:600px; */
+   padding: 10px;
+   font-family: verdana;
+   font-size:12pt;}
+
+#link {
+   float:right;
+   margin:5px;
+   font-family:verdana;
+   font-size:8pt;}
+

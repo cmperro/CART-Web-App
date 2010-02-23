@@ -4,29 +4,12 @@ session_start();
 <html>
 <head>
 <style>
-body {
-   text-align:center;}
-h3 {
-   font-family:verdana;
-   font-size:14pt;
-   font-weight:800;
-   color: #333333;}
-#loginBox {
-   margin: 100px auto;
-   text-align:left;
-   padding:10px;
-   width: 310px;
-   border: 1px solid #cccccc;
-   background: #eeeeee;
-   font-family: verdana;
-   font-size:12pt;}
-#go {
-   border:1px solid #999999;}
 </style>
+<link rel="styleSheet" type="text/css" href="includes/style.css" />
 </head>
 <body>
 
-<div id="loginBox">
+<div id="wrapper" style="width:310px;">
   <h3>User Authentication</h3>
   <form action="index.php" method="POST">
   <table>

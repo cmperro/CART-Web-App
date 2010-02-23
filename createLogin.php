@@ -4,33 +4,12 @@ session_start();
 <html>
 <head>
 <style>
-body {
-   text-align:center;}
-#box {
-   margin: 100px auto;
-   background: #eeeeee;
-   text-align:left;
-   border: 1px solid #cccccc;
-   width:300px;
-   padding: 10px;
-   font-family: verdana;
-   font-size:12pt;}
-h3 {
-   font-size:14pt; 
-   font-weight:800;
-   color:#333333;}
-#link {
-   float:right;
-   margin:5px;
-   font-family:verdana;
-   font-size:8pt;}
-#go {
-   border:1px solid #999999;}
 </style>
+<link rel="styleSheet" type="text/css" href="includes/style.css" />
 </head>
 <body>
 
-<div id="box">
+<div id="wrapper" style="width:325px;">
   <div id="link">
     <a href="protected.php">back</a>
   </div>
