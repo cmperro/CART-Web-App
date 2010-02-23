@@ -5,7 +5,6 @@
 <body>
 <?php
 /**
-*<p>
 *This script takes the uploaded file and does work.<br />
 *More specifically, it saves the spreadsheet in a local<br />
 *directory, checks to make sure that the user didn't enter<br />
@@ -13,7 +12,6 @@
 *uploaded excel spreadsheet. The answer key is saved in an<br />
 *array. The student answers are then parsed and placed into<br />
 *a two dimensional array.<br />
-*</p>
 */
 
 $target = "uploaded_spreadsheets/";
