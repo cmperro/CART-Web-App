@@ -13,16 +13,6 @@
 <pre>
 Authors: Andrew Curtis, Christopher Perro, Cooper Reid, Deniz Ulema
 
-As of 2/25, 2:32 PM
-
-Whenever you pull, be sure to:
-        chmod 777 accounts.txt
-        chmod 777 uploaded_spreadsheets
-                (Yes, I mean the directory uploaded_spreadsheets)
-
-Also, make sure you have a directory called "saved_pngs" then
-        chmod 777 saved_pngs
-
 CART definition: classification and regression tree
 
 User Instructions
