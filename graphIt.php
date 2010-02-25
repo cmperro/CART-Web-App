@@ -3,7 +3,7 @@
 session_start();
 
 $graph = $_SESSION['graph'];
-$filename = $_SESSION['filename'];
+$filename = rtrim($_SESSION['filename'],".xls");
 
 require_once 'includes/phptreegraph/classes/GDRenderer.php';
 
@@ -87,15 +87,17 @@ $objTree->setFTFont('./fonts/Vera.ttf', 12, 0, GDRenderer::CENTER|GDRenderer::TO
 //display image
 //$objTree->stream();
 
-//save image to server
-//there must be a writable file 'myCART.png'
-$objTree->save('saved_pngs/myCART.png');
+//save image to server in saved_pngs
+$saveTarget = "saved_pngs/".$filename.".png";
+$objTree->save($saveTarget);
+
 ?>
 
 <h3>Generated CART</h3>
-A .png image has been generated from <?php echo $filename; ?><br><br> 
-<a href="saved_pngs/myCART.png">
-<img src="saved_pngs/myCART.png" style="height:500px; width:700px;"/>
+A .png image has been generated from <?php echo $filename.".xls"; ?><br><br>
+ 
+<a href="<?php echo $saveTarget; ?>">
+<img src="<?php echo $saveTarget; ?>" style="height:500px; width:700px;"/>
 </a>
 
 <?php
