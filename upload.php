@@ -40,8 +40,8 @@ else{
         if(move_uploaded_file($_FILES['uploaded']['tmp_name'], $target))
         {
                 echo "The file ". basename( $_FILES['uploaded']['name']). " has been uploaded <a href='".$target."'>view</a><br>";
-                echo "Cuttoff-grade = ".$_REQUEST['cutoff_grade']."<br>";
-                echo "Cuttoff-probability = ".$_REQUEST['cutoff_prob']."<br>";
+                echo "Cutoff-grade = ".$_REQUEST['cutoff_grade']."<br>";
+                echo "Cutoff-probability = ".$_REQUEST['cutoff_prob']."<br>";
         }
         else
         {
