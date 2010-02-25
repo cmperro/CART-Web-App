@@ -1,9 +1,16 @@
 <html>
 <head>
-<title>Results</title>
+	<title>Results</title>
 </head>
 <body>
 <?php
+$target = "uploaded_spreadsheets/". basename( $_FILES['uploaded']['name']);
+if( move_uploaded_file($_FILES['uploaded']['tmp_name'], $target)){
+	$file = basename( $_FILES['uploaded']['name']);
+}
+require_once('./includes/phptreegraph/classes/GDRenderer.php');
+require_once('includes/phpExcel/Classes/PHPExcel/IOFactory.php');
+include 'includes/minegrades.php';
 /**
 *This script takes the uploaded file and does work.<br />
 *More specifically, it saves the spreadsheet in a local<br />
@@ -13,9 +20,6 @@
 *array. The student answers are then parsed and placed into<br />
 *a two dimensional array.<br />
 */
-
-$target = "uploaded_spreadsheets/";
-$target = $target . basename( $_FILES['uploaded']['name']);
 $COG = $_REQUEST['cutoff_grade'];
 $COP = $_REQUEST['cutoff_prob'];
 $uploaded_type = $_FILES['uploaded']['type'];
@@ -42,9 +46,9 @@ else{
                 echo "Sorry, there was a problem uploading your file";
         }
 }
-
-require_once 'includes/phpExcel/Classes/PHPExcel/IOFactory.php';
-include 'includes/minegrades.php';
+//require_once 'includes/phptreegraph/classes/GDRenderer.php';
+//require_once 'includes/phpExcel/Classes/PHPExcel/IOFactory.php';
+//include 'includes/minegrades.php';
 
 //Set-up a reader to parse the recently uploaded Excel Spreadsheet
 $objReader = PHPExcel_IOFactory::createReader('Excel5');
@@ -124,14 +128,27 @@ for($k = 1; $k < $arrhigh + 2; $k++)
 */
 
 $stats = mineGrades($COG, $COP, $answerKey, $studentAns);
-print($stats->message() . "\n");
+//print($stats->message() . "\n");
+$hope = $stats->printout(0);
 
+
+$objTree = new GDRenderer(20,20,40,175,20);
+
+$objTree->add(1,0,'hope');
+
+echo "<pre>"; print_r ($hope); echo "</pre>";
 
 //echo "<pre>";
-$stats->printHTML(0);
+//$stats->printHTML(0);
 //echo "</pre>";
 
+$objTree->setNodeLinks(GDRenderer::LINK_BEZIER);
+$objTree->setBGColor(array(255,183,111));
+$objTree->setNodeColor(array(0,128,255));
+$objTree->setLinkColor(array(0,64,128));
+$objTree->setTextColor(array(255,255,255));
+$objTree->setFTFont('./fonts/Vera.ttf',12,0, GDRenderer::CENTER|GDRenderer::TOP);
+$objTree->stream();
 ?>
-
 </body>
 </html>

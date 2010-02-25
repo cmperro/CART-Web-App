@@ -11,6 +11,9 @@
  
 // This is the tree class for the root. Internal nodes inherit from this
 // type to disply different messages.
+
+$toPrint = array();
+
 class GradeDecisionTree
 {
     public $students = array();
@@ -46,17 +49,30 @@ $good students passed ($goodp%)
 $bad students failed ($badp%)
 EOT;
     }
- 
+
+
     public function printout($indent)
     {
+	global $toPrint;
+
         $lead = "";
         for ($i = 0; $i < $indent; $i++) $lead = $lead . " ";
  
-        print(preg_replace("/\n/", "\n" . $lead, $lead . $this->message()));
-        print("\n");
+        $statement = preg_replace("/\n/", "<br>" . $lead, $lead . $this->message());
+        $holder = explode("<br>", $statement);
+	//print_r($holder);
+	//echo "<br>";
+	//echo "<pre>PRE"; print_r($toPrint); echo "</pre>";
+	$toPrint[] = $holder;
+	//echo "<pre>POST"; print_r($toPrint); echo "</pre>";
+	//print_r($toPrint);
+	//echo "<br> <br>";
  
         if ($this->right != null) $this->right->printout($indent+2);
         if ($this->wrong != null) $this->wrong->printout($indent+2);
+	//echo "<pre>"; print_r($toPrint); echo "</pre>";
+
+	return $toPrint;
     }
     //prints out the tree in a table format
     public function printHTML()
@@ -107,7 +123,6 @@ class GradeDecisionTreeInternal extends GradeDecisionTree
         $rw = $this->gotitright ? "right" : "wrong";
         return <<<EOT
 They got $this->question $rw
- 
 $total students total
 $good students passed ($goodp%)
 $bad students failed ($badp%)

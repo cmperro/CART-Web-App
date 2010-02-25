@@ -1,5 +1,4 @@
 <?php
-
 /*
  * phpTreeGraph
  *
@@ -23,8 +22,6 @@
   *                                                                          *
   *
  */
-
- 
 require_once('Tree.php');
 
 class GDRenderer extends Tree
