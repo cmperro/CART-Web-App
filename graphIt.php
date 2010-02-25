@@ -1,7 +1,9 @@
 <?php
+
 session_start();
 
 $graph = $_SESSION['graph'];
+$filename = $_SESSION['filename'];
 
 require_once 'includes/phptreegraph/classes/GDRenderer.php';
 
@@ -31,7 +33,6 @@ for($i = 1; $i < sizeof($graph); $i++)
 		$rw [] = 'w';
 	}
 }
-
 
 
 
@@ -82,8 +83,23 @@ $objTree->setNodeColor(array(0, 128, 255));
 $objTree->setLinkColor(array(0, 64, 128));
 $objTree->setTextColor(array(255, 255, 255));
 $objTree->setFTFont('./fonts/Vera.ttf', 12, 0, GDRenderer::CENTER|GDRenderer::TOP);
-$objTree->stream();
 
+//display image
+//$objTree->stream();
 
-	
+//save image to server
+//there must be a writable file 'myCART.png'
+$objTree->save('saved_pngs/myCART.png');
+?>
+
+<h3>Generated CART</h3>
+A .png image has been generated from <?php echo $filename; ?><br><br> 
+<a href="saved_pngs/myCART.png">
+<img src="saved_pngs/myCART.png" style="height:500px; width:700px;"/>
+</a>
+
+<?php
+//forces browser to open save dialogue
+//must modify header properly first
+//readfile('saved_pngs/myCART.png');
 ?>

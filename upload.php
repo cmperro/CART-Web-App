@@ -8,6 +8,10 @@ session_start();
 <body>
 <?php
 $target = "uploaded_spreadsheets/". basename( $_FILES['uploaded']['name']);
+
+//store filename for saving image in graphIt.php
+$_SESSION['filename'] = $_FILES['uploaded']['name'];
+
 //if( move_uploaded_file($_FILES['uploaded']['tmp_name'], $target)){
 //	$file = basename( $_FILES['uploaded']['name']);
 //}
