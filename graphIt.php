@@ -40,8 +40,36 @@ $objTree = new GDRenderer(20,20,40,200,20);
 $objTree->add(1,0, $graph[0][0]);
 $objTree->add(2,1, $graph[0][1]);
 $objTree->add(3,2, $graph[0][2]);
-$niente = array_shift($graph);
 
+$parent = 3;
+$cache = array();
+$multiplier = 1;
+$graph_size = sizeof($graph);
+
+
+for($k = 1; $k < $graph_size; $k++)
+{
+	$offset = $multiplier * 4;
+	if($rw[$k - 1] == 'r')
+	{
+		$cache [] = $parent;
+		$objTree->add($offset,$parent, $graph[$k][0]);
+		$objTree->add($offset+1,$offset, $graph[$k][1]);
+		$objTree->add($offset+2,$offset+1, $graph[$k][2]);
+		$objTree->add($offset+3,$offset+2, $graph[$k][3]);
+		$parent = $parent + 4;
+	}
+	else
+	{
+		$new_parent = array_shift($cache);
+		$objTree->add($offset,$new_parent, $graph[$k][0]);
+		$objTree->add($offset+1,$offset, $graph[$k][1]);
+		$objTree->add($offset+2,$offset+1, $graph[$k][2]);
+		$objTree->add($offset+3,$offset+2, $graph[$k][3]);
+		$parent = $new_parent + 4;
+	}
+	$multiplier = $multiplier + 1;
+}
 
 
 
