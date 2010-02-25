@@ -57,16 +57,18 @@ for($k = 1; $k < $graph_size; $k++)
 		$objTree->add($offset+1,$offset, $graph[$k][1]);
 		$objTree->add($offset+2,$offset+1, $graph[$k][2]);
 		$objTree->add($offset+3,$offset+2, $graph[$k][3]);
-		$parent = $parent + 4;
+		//$parent = $parent + 4;
+		$parent = $offset + 3;
 	}
 	else
 	{
-		$new_parent = array_shift($cache);
+		$new_parent = array_pop($cache);
 		$objTree->add($offset,$new_parent, $graph[$k][0]);
 		$objTree->add($offset+1,$offset, $graph[$k][1]);
 		$objTree->add($offset+2,$offset+1, $graph[$k][2]);
 		$objTree->add($offset+3,$offset+2, $graph[$k][3]);
-		$parent = $new_parent + 4;
+		//$parent = $new_parent + 4;
+		$parent = $offset + 3;
 	}
 	$multiplier = $multiplier + 1;
 }
