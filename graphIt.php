@@ -35,7 +35,7 @@ for($i = 1; $i < sizeof($graph); $i++)
 
 
 
-$objTree = new GDRenderer(20,20,40,200,20);
+$objTree = new GDRenderer(20,500,100,200,20);
 
 $objTree->add(1,0, $graph[0][0]);
 $objTree->add(2,1, $graph[0][1]);
