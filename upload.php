@@ -143,6 +143,7 @@ echo "<pre>"; print_r ($hope); echo "</pre>";
 
 $_SESSION['graph']=$hope;
 ?>
-<a href="graphIt.php">Graph It!</a>
+<a href="graphIt.php">Graph It!</a><br>
+<a href="protected.php">Input new information?</a>
 </body>
 </html>
