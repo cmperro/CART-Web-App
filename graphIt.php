@@ -94,11 +94,12 @@ $objTree->save($saveTarget);
 ?>
 
 <h3>Generated CART</h3>
-A .png image has been generated from <?php echo $filename.".xls"; ?><br><br>
+A .png image has been generated from <?php echo $filename.".xls."; ?><br><br>
  
 <a href="<?php echo $saveTarget; ?>">
-<img src="<?php echo $saveTarget; ?>" style="height:500px; width:700px;"/>
-</a>
+<img src="<?php echo $saveTarget; ?>" style="height:500px; width:700px;">
+</a><br>
+<a href="protected.php">Input new information?</a>
 
 <?php
 //forces browser to open save dialogue
