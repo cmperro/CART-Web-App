@@ -8,9 +8,8 @@ session_start();
 ?>
 <html>
 <head>
-<style>
-</style>
 <link rel="styleSheet" type="text/css" href="includes/style.css" />
+<title>Create Login</title>
 </head>
 <body>
 

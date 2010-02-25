@@ -9,8 +9,7 @@ session_start();
 ?>
 <html>
 <head>
-<style>
-</style>
+<title>Protected Area</title>
 <link rel="styleSheet" type="text/css" href="includes/style.css" />
 </head>
 <body>

@@ -8,8 +8,7 @@ session_start();
 ?>
 <html>
 <head>
-<style>
-</style>
+<title>Login</title>
 <link rel="styleSheet" type="text/css" href="includes/style.css" />
 <script type="text/javaScript" src="includes/ajaxRequest/request.js">
 </script>

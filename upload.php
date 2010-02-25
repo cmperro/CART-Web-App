@@ -3,7 +3,7 @@ session_start();
 ?>
 <html>
 <head>
-	<title>Results</title>
+<title>Results</title>
 </head>
 <body>
 <?php
@@ -75,14 +75,14 @@ $startColumn = PHPExcel_Cell::columnIndexFromString($startColumn);
 
 //numQuestions = (&highestCol - 7);//number of questions
 //Error check if the input cutoff values are allowable
-if ($COG < 0 || $COG > ($highestCol - 7) || strlen($COG) < 1)
+if ($COG < 0 || $COG > ($highestCol - 7) || strlen($COG) < 1 || !(is_numeric($element)))
 {
         echo "Please enter a valid cutoff grade (NOT percentage, but the number), between 0 and ".($highestCol - 7).".<br>";
         echo "<a href='protected.php'>Please try again.</a>";
         exit(1);
 }
 
-if ($COP < 0 || $COP > 1 || strlen($COP) < 1)
+if ($COP < 0 || $COP > 1 || strlen($COP) < 1 || !(is_numeric($element)))
 {
         echo "Please enter a valid cutoff probability, between 0 and 1.<br>";
         echo "<a href='protected.php'>Please try again.</a>";
