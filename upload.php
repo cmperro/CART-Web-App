@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <html>
 <head>
 	<title>Results</title>
@@ -5,10 +8,9 @@
 <body>
 <?php
 $target = "uploaded_spreadsheets/". basename( $_FILES['uploaded']['name']);
-if( move_uploaded_file($_FILES['uploaded']['tmp_name'], $target)){
-	$file = basename( $_FILES['uploaded']['name']);
-}
-require_once('./includes/phptreegraph/classes/GDRenderer.php');
+//if( move_uploaded_file($_FILES['uploaded']['tmp_name'], $target)){
+//	$file = basename( $_FILES['uploaded']['name']);
+//}
 require_once('includes/phpExcel/Classes/PHPExcel/IOFactory.php');
 include 'includes/minegrades.php';
 /**
@@ -132,9 +134,6 @@ $stats = mineGrades($COG, $COP, $answerKey, $studentAns);
 $hope = $stats->printout(0);
 
 
-$objTree = new GDRenderer(20,20,40,175,20);
-
-$objTree->add(1,0,'hope');
 
 echo "<pre>"; print_r ($hope); echo "</pre>";
 
@@ -142,13 +141,8 @@ echo "<pre>"; print_r ($hope); echo "</pre>";
 //$stats->printHTML(0);
 //echo "</pre>";
 
-$objTree->setNodeLinks(GDRenderer::LINK_BEZIER);
-$objTree->setBGColor(array(255,183,111));
-$objTree->setNodeColor(array(0,128,255));
-$objTree->setLinkColor(array(0,64,128));
-$objTree->setTextColor(array(255,255,255));
-$objTree->setFTFont('./fonts/Vera.ttf',12,0, GDRenderer::CENTER|GDRenderer::TOP);
-$objTree->stream();
+$_SESSION['graph']=$hope;
 ?>
+<a href="graphIt.php">Graph It!</a>
 </body>
 </html>
