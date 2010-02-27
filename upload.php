@@ -179,15 +179,15 @@ system($createPng);
 
 //index 0 is width, 1 is height, in pixels
 $imageSize = getimagesize("saved_pngs/output.png");
-$scaledWidth = floor($imageSize[0] / 4.5);
-$scaledHeight = floor($imageSize[1] / 4.5);
+$scaledWidth = floor($imageSize[0] / 5);
+$scaledHeight = floor($imageSize[1] / 5);
 
 ?>
 <br />
 <small>click image for full-size</small>
 <br />
 <a href="saved_pngs/output.png" target="_blank">
-<img src="saved_pngs/output.png" style="width:<?php echo $scaledWidth; ?>px; height:<?php echo $scaledHeight; ?>px; border:2px solid #eeeeee" onMouseOver="this.style.border='2px solid #339999'" onMouseOut="this.style.border='2px solid #eeeeee'" />
+<img src="saved_pngs/output.png" style="width:<?php echo $scaledWidth; ?>px; height:<?php echo $scaledHeight; ?>px; border:2px solid #cccccc" onMouseOver="this.style.border='2px solid #339999'" onMouseOut="this.style.border='2px solid #cccccc'" />
 </a><br>
 
 </div><!--close holder-->
