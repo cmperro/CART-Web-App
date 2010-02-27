@@ -43,6 +43,6 @@ Results
         Click "Input new information" to return to the protected area, where
         you can upload a new file and/or change cutoff values
 </pre>
-<a href="protected.php">Return to Protected Area</a>
+<a href="Javascript:window.close()">Return to Protected Area</a>
 </body>
 </html>
