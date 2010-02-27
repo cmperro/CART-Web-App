@@ -1,8 +1,9 @@
 /*stylesheet for the CART-Web-App*/
 
-/*style generic tages*/
+/*style generic tags*/
 body {
-   text-align:center;}
+   text-align:center;
+   font-family: verdana;}
 
 h3 {
    font-family:verdana;

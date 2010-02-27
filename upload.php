@@ -4,9 +4,20 @@ session_start();
 <html>
 <head>
 <title>Results</title>
+<link rel="styleSheet" type="text/css" href="includes/style.css" />
 </head>
 <body>
+
+
+<div id="wrapper" style="width:502px; margin:25px auto">
+<div id="top">
+  <a href="protected.php">input new information</a> | 
+  <a href="signout.php">signout</a></div>
+<div id="content" style="width:500px;">
+<div id="holder">
+
 <?php
+
 $target = "uploaded_spreadsheets/". basename( $_FILES['uploaded']['name']);
 
 //store filename for saving image in graphIt.php
@@ -42,10 +53,13 @@ if (!($uploaded_type=="application/vnd.ms-excel"))
 
 else{
         if(move_uploaded_file($_FILES['uploaded']['tmp_name'], $target))
-        {
-                echo "The file ". basename( $_FILES['uploaded']['name']). " has been uploaded <a href='".$target."'>view</a><br>";
-                echo "Cutoff-grade = ".$_REQUEST['cutoff_grade']."<br>";
+        {       
+                echo "<h3>Results:</h3>";
+                echo "<small>";
+                echo "<i>".$_FILES['uploaded']['name']."</i><br>";
+                echo "Cutoff-grade = ".$_REQUEST['cutoff_grade']."<br>"; 
                 echo "Cutoff-probability = ".$_REQUEST['cutoff_prob']."<br>";
+                echo "</small>";
         }
         else
         {
@@ -135,7 +149,6 @@ for($k = 1; $k < $arrhigh + 2; $k++)
 
 $stats = mineGrades($COG, $COP, $answerKey, $studentAns);
 //print($stats->message() . "\n");
-//$hope = $stats->printout(0);
 
 $test = $stats->printAllNodes(); //list of all nodes
 $final = $stats->printDOT(); //list of node relationships
@@ -164,11 +177,24 @@ fclose($fh);
 $createPng = "dot saved_pngs/process.dot -T png -o saved_pngs/output.png";
 system($createPng);
 
-$_SESSION['graph']=$hope;
-?>
+//index 0 is width, 1 is height, in pixels
+$imageSize = getimagesize("saved_pngs/output.png");
+$scaledWidth = floor($imageSize[0] / 4.5);
+$scaledHeight = floor($imageSize[1] / 4.5);
 
-<a href="saved_pngs/output.png" target="_blank"><img src="saved_pngs/output.png" style="height:200px; width:250px;"></a><br>
-<a href="graphIt.php">Graph It!</a><br>
-<a href="protected.php">Input new information?</a>
+?>
+<br />
+<small>click image for full-size</small>
+<br />
+<a href="saved_pngs/output.png" target="_blank">
+<img src="saved_pngs/output.png" style="width:<?php echo $scaledWidth; ?>px; height:<?php echo $scaledHeight; ?>px; border:2px solid #eeeeee" onMouseOver="this.style.border='2px solid #339999'" onMouseOut="this.style.border='2px solid #eeeeee'" />
+</a><br>
+
+</div><!--close holder-->
+</div><!--close content-->
+</div><!--close wrapper-->
+
 </body>
 </html>
+
+
