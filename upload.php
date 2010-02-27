@@ -140,8 +140,8 @@ $stats = mineGrades($COG, $COP, $answerKey, $studentAns);
 
 
 
-$test = $stats->printAllNodes();
-$final = $stats->printDOT();
+$test = $stats->printAllNodes(); //list of all nodes
+$final = $stats->printDOT(); //list of node relationships
 
 $DotFile = "saved_pngs/process.dot";
 $fh = fopen($DotFile, 'w') or die("can't open file");
