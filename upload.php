@@ -153,6 +153,12 @@ for($g = 0; $g < sizeof($test); $g++)
 {
 	fwrite($fh, $test[$g]);
 }
+
+for($c = 0; $c < sizeof($final); $c++)
+{
+	fwrite($fh, $final[$c]);
+}
+
 $bottomStatement = "}";
 fwrite($fh, $bottomStatement);
 fclose($fh);
