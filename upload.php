@@ -137,9 +137,6 @@ $stats = mineGrades($COG, $COP, $answerKey, $studentAns);
 //print($stats->message() . "\n");
 //$hope = $stats->printout(0);
 
-
-
-
 $test = $stats->printAllNodes(); //list of all nodes
 $final = $stats->printDOT(); //list of node relationships
 
@@ -163,10 +160,14 @@ $bottomStatement = "}";
 fwrite($fh, $bottomStatement);
 fclose($fh);
 
-
+//create the image file
+$createPng = "dot saved_pngs/process.dot -T png -o saved_pngs/output.png";
+system($createPng);
 
 $_SESSION['graph']=$hope;
 ?>
+
+<a href="saved_pngs/output.png" target="_blank"><img src="saved_pngs/output.png" style="height:200px; width:250px;"></a><br>
 <a href="graphIt.php">Graph It!</a><br>
 <a href="protected.php">Input new information?</a>
 </body>
