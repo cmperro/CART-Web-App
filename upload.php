@@ -135,15 +135,29 @@ for($k = 1; $k < $arrhigh + 2; $k++)
 
 $stats = mineGrades($COG, $COP, $answerKey, $studentAns);
 //print($stats->message() . "\n");
-$hope = $stats->printout(0);
+//$hope = $stats->printout(0);
 
 
 
-echo "<pre>"; print_r ($hope); echo "</pre>";
 
-//echo "<pre>";
-//$stats->printHTML(0);
-//echo "</pre>";
+$test = $stats->printAllNodes();
+$final = $stats->printDOT();
+
+$DotFile = "saved_pngs/process.dot";
+$fh = fopen($DotFile, 'w') or die("can't open file");
+
+$topStatement = "digraph{\n";
+fwrite($fh, $topStatement);
+
+for($g = 0; $g < sizeof($test); $g++)
+{
+	fwrite($fh, $test[$g]);
+}
+$bottomStatement = "}";
+fwrite($fh, $bottomStatement);
+fclose($fh);
+
+
 
 $_SESSION['graph']=$hope;
 ?>

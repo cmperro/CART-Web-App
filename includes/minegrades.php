@@ -12,7 +12,9 @@
 // This is the tree class for the root. Internal nodes inherit from this
 // type to disply different messages.
 
-$toPrint = array();
+$AllNodesPrint = array();
+$DOTPrint = array();
+$numeroUno = 0;
 
 class GradeDecisionTree
 {
@@ -87,6 +89,61 @@ EOT;
         if ($this->wrong != null) $this->wrong->printHTML();
         echo "</td></tr>\n";
         echo "</table>\n";
+    }
+
+    public function printDOT()
+    {
+	global $DOTPrint;
+	global $numeroUno;
+	if($numeroUno != 0)
+	{
+		//echo '"';
+		$statement = '"';
+	        $statement .= preg_replace("/\n/", '\n', $this->message());
+		$statement .= '";';
+		$DOTPrint [] = $statement;
+		//echo '";';
+		//echo '<br>';
+	}
+	$numeroUno++;
+        if ($this->right != null)
+	{
+		//echo '"';
+		$statement = '"';
+        	$statement .= preg_replace("/\n/", '\n', $this->message());
+		$statement .= '"->';
+		$DOTPrint [] = $statement;
+		//echo '"';
+		//echo "->";
+		$this->right->printDOT();
+	}
+        if ($this->wrong != null)
+	{
+		//echo '"';
+		$statement = '"';
+        	$statement .= preg_replace("/\n/", '\n', $this->message());
+		$statement .= '"->';
+		$DOTPrint [] = $statement;
+		//echo '"';
+		//echo "->";
+		$this->wrong->printDOT();
+	}
+	return $DOTPrint;	
+    }
+
+    public function printAllNodes()
+    {
+	global $AllNodesPrint;
+	//echo '"';
+	$statement = '"';
+        $statement .= preg_replace("/\n/", '\n', $this->message());
+	$statement .= '";';
+	$AllNodesPrint [] = $statement;
+	//echo '";';
+	//echo "<br>";
+        if ($this->right != null) $this->right->printAllNodes();
+        if ($this->wrong != null) $this->wrong->printAllNodes();
+	return $AllNodesPrint;
     }
 }
 /**
