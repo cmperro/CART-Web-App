@@ -26,13 +26,7 @@ if(isset($_SESSION['loggedInAs']))
   <!--AddUser Link for Admin--> 
   <?php if($_SESSION['loggedInAs'] == "admin") echo "<a href='createLogin.php'>add users</a> | "; ?>
 
-  <?php
-  /**
-  * Links to Signout.php
-  *
-  * @link signout.php
-  */
-  ?>
+  <!--Links to Signout-->
   <a href="signout.php">signout</a>
   </div>
 
@@ -60,13 +54,6 @@ else {
    ?>
    <div id="content">
    <div id="holder">
-   <?php
-   /**
-   * Links to Index.php
-   *
-   * @link index.php
-   */
-   ?>
    You must <a href="index.php">sign in</a> to view this content.
    
   <?php

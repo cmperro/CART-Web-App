@@ -2,6 +2,8 @@
 session_start();
 /**
 * Checks for successful login and redirects accordingly
+* 
+* @package pagelevel-desc
 */
 ?>
 <html>
@@ -41,6 +43,7 @@ error_reporting(E_ALL);
 
 /**
 * Redirect a signed in user to the protected page
+*
 * @link protected.php
 */
 if( isset($_SESSION['loggedInAs']) ) 
@@ -69,6 +72,7 @@ if( isset($_POST['user']) && isset($_POST['pass']) )
    }
     /**
     * If login attempt is successful, begin session and redirect
+    *
     * @link protected.php 
     */ 
    if($loginSuccess) {
