@@ -3,6 +3,8 @@ session_start();
 /**
 * Protected page that makes sure a user is signed in.
 * Allows the process to upload a file to be parsed.
+*
+* @package pagelevel-desc
 */
 ?>
 <html>
@@ -25,7 +27,13 @@ if(isset($_SESSION['loggedInAs']))
   <!--AddUser Link for Admin--> 
   <?php if($_SESSION['loggedInAs'] == "admin") echo "<a href='createLogin.php'>add users</a> | "; ?>
 
-  <!--link to signout-->
+  <?php
+  /**
+  * Links to Signout.php
+  *
+  * @link signout.php
+  */
+  ?>
   <a href="signout.php">signout</a>
   </div>
 
@@ -53,6 +61,13 @@ else {
    ?>
    <div id="content">
    <div id="holder">
+   <?php
+   /**
+   * Links to Index.php
+   *
+   * @link index.php
+   */
+   ?>
    You must <a href="index.php">sign in</a> to view this content.
    
   <?php

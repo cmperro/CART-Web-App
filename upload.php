@@ -34,7 +34,6 @@ $_SESSION['filename'] = $_FILES['uploaded']['name'];
 *
 * @link includes/minegrades.php
 * @link includes/phpExcel/Classes/PHPExcel/IOFactory.php
-* @package include
 */
 require_once('includes/phpExcel/Classes/PHPExcel/IOFactory.php');
 include 'includes/minegrades.php';
