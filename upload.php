@@ -1,12 +1,13 @@
 <?php
 session_start();
 /**
-*@desc 
+*<p> 
 *This script takes the uploaded file and saves a spreadsheet
 *in a local directory. It also checks to make sure the user did
 *not enter absurd cutoff ranges. From there, it proceeds to read
 *from the uploaded excel spreadsheet. The answer key is saved in
 *an array. The student answers are then parsed into a 2D-array.
+*</p>
 */
 ?>
 <html>
