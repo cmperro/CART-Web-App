@@ -1,13 +1,14 @@
 <?php
 session_start();
 /** 
-*This script takes the uploaded file and saves a spreadsheet
-*in a local directory. It also checks to make sure the user did
-*not enter absurd cutoff ranges. From there, it proceeds to read
-*from the uploaded excel spreadsheet. The answer key is saved in
-*an array. The student answers are then parsed into a 2D-array.
+*<p>
+*This script takes the uploaded file and saves a spreadsheet in a local directory. 
+*It also checks to make sure the user did not enter absurd cutoff ranges.
+*From there, it proceeds to read from the uploaded excel spreadsheet.
+*The answer key is saved in an array. The student answers are then parsed into a 2D-array.
+*</p>
 *
-* @package pagedesc
+* @package pagelevel-pagedesc
 */
 ?>
 <html>
@@ -33,17 +34,15 @@ $target = "uploaded_spreadsheets/". basename( $_FILES['uploaded']['name']);
 $_SESSION['filename'] = $_FILES['uploaded']['name'];
 
 
+/**
+* Included Library Information
+*
+* @link includes/minegrades.php
+* @link includes/phpExcel/Classes/PHPExcel/IOFactory.php
+* @package pagelevel-includes
+*/
 require_once('includes/phpExcel/Classes/PHPExcel/IOFactory.php');
 include 'includes/minegrades.php';
-/**
-*This script takes the uploaded file and does work.<br />
-*More specifically, it saves the spreadsheet in a local<br />
-*directory, checks to make sure that the user didn't enter<br />
-*absurd cuttoff ranges, and then proceeds to read from the<br />
-*uploaded excel spreadsheet. The answer key is saved in an<br />
-*array. The student answers are then parsed and placed into<br />
-*a two dimensional array.<br />
-*/
 
 $COG = $_REQUEST['cutoff_grade'];
 $COP = $_REQUEST['cutoff_prob'];
