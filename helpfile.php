@@ -18,7 +18,7 @@ CART definition: classification and regression tree
 User Instructions
 -----------------
 Login Page
-        Type in name, password
+        Type in username, password
         If you do not have a login, click on "request access", enter your email
                 The administrator shall be notified and will give you further
                 instructions and/or login info
@@ -36,13 +36,11 @@ Protected Area
 
 Results
         If all input data was valid, the data entered is displayed here
-        The uploaded file may be viewed by clicking "view"
-        Click "Graph It!" to view the actual CART
-                Click on the image to view it on its own page
+        Click on the image to view it on its own page
                 Right-click the image, then click "Save Image As..." to save
-        Click "Input new information" to return to the protected area, where
+        Click "input new information" to return to the protected area, where
         you can upload a new file and/or change cutoff values
 </pre>
-<a href="Javascript:window.close()">Return to Protected Area</a>
+<a href="Javascript:window.close()">Close this window</a>
 </body>
 </html>
