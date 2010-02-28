@@ -1,5 +1,9 @@
 <?php
 session_start();
+/**
+* Creates a Login for a user to be stored as administator
+* as long as the username does not already exist
+*/ 
 ?>
 
 <html>
@@ -19,12 +23,6 @@ session_start();
 <h3>Create Account</h3>
 
 <?php
-
-/**
-*
-* Creates a Login for a user to be stored as an administrator.
-*
-*/
 
 error_reporting(E_ALL);
 //retrieve current user name

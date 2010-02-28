@@ -1,9 +1,7 @@
 <?php
 session_start();
 /**
-* <p>
 * Signs out user at the end of their session
-* </p>
 */
 error_reporting(E_ALL);
 //clear session variable

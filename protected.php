@@ -1,10 +1,8 @@
 <?php
 session_start();
 /**
-*<p>
-* Protected page that makes sure a user is signed in. <br />
-* Allows the process to upload a file to be parsed. <br />
-*</p>
+* Protected page that makes sure a user is signed in.
+* Allows the process to upload a file to be parsed.
 */
 ?>
 <html>
