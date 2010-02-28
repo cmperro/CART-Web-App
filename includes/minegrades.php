@@ -3,7 +3,7 @@
 * Runs Algorithm to parse in a Excel Sheet with parameters against <br />
 * uploaded Excel Sheet.
 *
-*@package pagelevel-desc
+* @package pagelevel-desc
 */ 
 
 // NOT FOR SHOWING DIRECTLY - THIS IS A LIBRARY - THINGS WILL NOT LOOK
@@ -19,8 +19,8 @@ $numeroUno = 0;
 
 /**
 *Declared Class; houses variables
-* 
-*@abstract
+*
+*@package class
 */
 class GradeDecisionTree
 {
@@ -154,6 +154,8 @@ EOT;
 }
 /**
 * This class extends GradeDecisionTree
+*
+* @package extends
 */ 
 class GradeDecisionTreeInternal extends GradeDecisionTree
 {
