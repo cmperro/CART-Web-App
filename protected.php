@@ -1,8 +1,7 @@
 <?php
 session_start();
 /**
-* Protected page that makes sure a user is signed in.
-* Allows the process to upload a file to be parsed.
+* Protected page that makes sure a user is signed in. <br> Allows the process to upload a file to be parsed.
 *
 * @package pagelevel-desc
 */
