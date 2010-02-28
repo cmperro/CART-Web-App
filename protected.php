@@ -24,6 +24,9 @@ if(isset($_SESSION['loggedInAs']))
 {
   ?>
   <div id="top">
+  <!--help page-->
+  <a href="helpfile.html" target="_blank">help</a> | 
+
   <!--AddUser Link for Admin--> 
   <?php if($_SESSION['loggedInAs'] == "admin") echo "<a href='createLogin.php'>add users</a> | "; ?>
 
@@ -64,9 +67,6 @@ else {
 </div><!--close holder-->
 </div><!--close content-->
 </div><!--close wrapper-->
-
-<small><i>See the <span class="url-link"><a href="helpfile.php" target="_blank">README
-</a></span> for an explanation of how to use this application.</i></small>
 
 </body>
 </html>
