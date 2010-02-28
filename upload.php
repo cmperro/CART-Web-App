@@ -1,10 +1,7 @@
 <?php
 session_start();
 /** 
-*This script takes the uploaded file and saves a spreadsheet in a local directory. <br> 
-*It also checks to make sure the user did not enter absurd cutoff ranges. <br>
-*From there, it proceeds to read from the uploaded excel spreadsheet. <br>
-*The answer key is saved in an array. The student answers are then parsed into a 2D-array. <br>
+*This script takes the uploaded file and saves a spreadsheet in a local directory. <br> It also checks to make sure the user did not enter absurd cutoff ranges. <br> From there, it proceeds to read from the uploaded excel spreadsheet. <br> The answer key is saved in an array. The student answers are then parsed into a 2D-array. <br>
 *
 * @package pagelevel-pagedesc
 */
@@ -37,7 +34,7 @@ $_SESSION['filename'] = $_FILES['uploaded']['name'];
 *
 * @link includes/minegrades.php
 * @link includes/phpExcel/Classes/PHPExcel/IOFactory.php
-* @package includes
+* @package include
 */
 require_once('includes/phpExcel/Classes/PHPExcel/IOFactory.php');
 include 'includes/minegrades.php';
