@@ -11,6 +11,12 @@
 
 <body class="TPtext">
 <pre>
+<?php
+/**
+* Helpfile for user instructions for users
+*/
+?>
+
 Authors: Andrew Curtis, Christopher Perro, Cooper Reid, Deniz Ulema
 
 CART definition: classification and regression tree
