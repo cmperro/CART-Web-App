@@ -1,13 +1,17 @@
 Authors: Andrew Curtis, Christopher Perro, Cooper Reid, Deniz Ulema
 
-As of 2/25, 2:32 PM
+As of 2/28, 1:08 PM
 
 Whenever you pull, be sure to:
 	chmod 777 accounts.txt
 	chmod 777 uploaded_spreadsheets
-		(Yes, I mean the directory uploaded_spreadsheets)
-
-Also, make sure you have a directory called "saved_pngs" then
 	chmod 777 saved_pngs
+
+Note:
+	The directories "saved_pngs" and "uploaded_spreadsheets" are not
+	included in the repository, due to the fact that they may/probably
+	will be empty for most of the time and github doesn't like empty
+	directories. However, be sure to keep them in your own copy
+	because they are needed for the program to function properly.
 
 CART definition: classification and regression tree

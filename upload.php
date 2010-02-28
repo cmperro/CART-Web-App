@@ -1,5 +1,15 @@
 <?php
 session_start();
+/** 
+*<p>
+*This script takes the uploaded file and saves a spreadsheet in a local directory. 
+*It also checks to make sure the user did not enter absurd cutoff ranges.
+*From there, it proceeds to read from the uploaded excel spreadsheet.
+*The answer key is saved in an array. The student answers are then parsed into a 2D-array.
+*</p>
+*
+* @package pagelevel-pagedesc
+*/
 ?>
 <html>
 <head>
@@ -23,20 +33,17 @@ $target = "uploaded_spreadsheets/". basename( $_FILES['uploaded']['name']);
 //store filename for saving image in graphIt.php
 $_SESSION['filename'] = $_FILES['uploaded']['name'];
 
-//if( move_uploaded_file($_FILES['uploaded']['tmp_name'], $target)){
-//	$file = basename( $_FILES['uploaded']['name']);
-//}
+
+/**
+* Included Library Information
+*
+* @link includes/minegrades.php
+* @link includes/phpExcel/Classes/PHPExcel/IOFactory.php
+* @package pagelevel-includes
+*/
 require_once('includes/phpExcel/Classes/PHPExcel/IOFactory.php');
 include 'includes/minegrades.php';
-/**
-*This script takes the uploaded file and does work.<br />
-*More specifically, it saves the spreadsheet in a local<br />
-*directory, checks to make sure that the user didn't enter<br />
-*absurd cuttoff ranges, and then proceeds to read from the<br />
-*uploaded excel spreadsheet. The answer key is saved in an<br />
-*array. The student answers are then parsed and placed into<br />
-*a two dimensional array.<br />
-*/
+
 $COG = $_REQUEST['cutoff_grade'];
 $COP = $_REQUEST['cutoff_prob'];
 $uploaded_type = $_FILES['uploaded']['type'];
@@ -66,9 +73,7 @@ else{
                 echo "Sorry, there was a problem uploading your file";
         }
 }
-//require_once 'includes/phptreegraph/classes/GDRenderer.php';
-//require_once 'includes/phpExcel/Classes/PHPExcel/IOFactory.php';
-//include 'includes/minegrades.php';
+
 
 //Set-up a reader to parse the recently uploaded Excel Spreadsheet
 $objReader = PHPExcel_IOFactory::createReader('Excel5');
@@ -111,9 +116,6 @@ for($col = $startColumn - 1; $col < $highestCol; $col++)
         $answerKey[] = ($objPHPExcel->getActiveSheet()->getCellByColumnAndRow($col,4)->getValue());
 }
 
-//print_r($answerKey);
-//echo "<br>";
-
 
 //Set up and populate the Student Answer Array. Start row is hard-coded. The answers start here for
 //every spreadsheet.
@@ -130,28 +132,17 @@ for($row = $startRow; $row < $highestRow + 1; $row++)
                 {
                         $temp = 'X';
                 }
-                //echo $temp;
                 $ithStudent[] = $temp;
         }
-        //echo "<br>";
         $studentAns[] = $ithStudent;
 }
 
-//Test Routine - To Be Deleted
-/*
-$arrhigh = $highestRow - $startRow;
-for($k = 1; $k < $arrhigh + 2; $k++)
-{
-        print_r($studentAns[$k]);
-        echo "<br>";
-}
-*/
+
 
 $stats = mineGrades($COG, $COP, $answerKey, $studentAns);
-//print($stats->message() . "\n");
 
-$test = $stats->printAllNodes(); //list of all nodes
-$final = $stats->printDOT(); //list of node relationships
+$test = $stats->printAllNodes();
+$final = $stats->printDOT();
 
 $DotFile = "saved_pngs/process.dot";
 $fh = fopen($DotFile, 'w') or die("can't open file");
@@ -196,5 +187,3 @@ $scaledHeight = floor($imageSize[1] / 5);
 
 </body>
 </html>
-
-

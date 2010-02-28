@@ -1,10 +1,9 @@
 <?PHP
 /**
-* <p>
 * Runs Algorithm to parse in a Excel Sheet with parameters against <br />
 * uploaded Excel Sheet.
-* </p>
 */ 
+
 // NOT FOR SHOWING DIRECTLY - THIS IS A LIBRARY - THINGS WILL NOT LOOK
 // RIGHT IF SOMEONE ACCESSES THIS FILE DIRECTLY
  

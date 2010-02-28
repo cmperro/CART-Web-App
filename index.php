@@ -1,9 +1,7 @@
 <?php
 session_start();
 /**
-* <p>
 * Checks for successful login and redirects accordingly
-* </p>
 */
 ?>
 <html>
@@ -82,8 +80,13 @@ if( isset($_POST['user']) && isset($_POST['pass']) )
    else echo "invalid combination";
 }
 ?>
+
 </div><!--close holder-->
 </div><!--close content-->
 </div><!-- close wrapper -->
+
+<small><i>See the <span class="url-link"><a href="helpfile.php" target="_blank">README
+</a></span> for an explanation of how to use this application.</i></small>
+
 </body>
 </html>

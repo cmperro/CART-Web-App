@@ -1,11 +1,11 @@
 <?php
 session_start();
 /**
-* <p>
-* Creates a Login for a user to be stored as an administrator
-* </p>
-*/
+* Creates a Login for a user to be stored as administator
+* as long as the username does not already exist
+*/ 
 ?>
+
 <html>
 <head>
 <link rel="styleSheet" type="text/css" href="includes/style.css" />
@@ -23,6 +23,7 @@ session_start();
 <h3>Create Account</h3>
 
 <?php
+
 error_reporting(E_ALL);
 //retrieve current user name
 @$loggedInAs = $_SESSION['loggedInAs'];
