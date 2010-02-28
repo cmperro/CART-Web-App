@@ -196,5 +196,3 @@ $scaledHeight = floor($imageSize[1] / 5);
 
 </body>
 </html>
-
-
