@@ -122,7 +122,7 @@ for($col = $startColumn - 1; $col < $highestCol; $col++)
 $startRow = 5;
 $studentAns = array(array());
 
-for($row = $startRow; $row < $highestRow + 1; $row++)
+for($row = $startRow; $row < $highestRow; $row++)
 {
         $ithStudent = array();
         for($col = $startColumn - 1; $col < $highestCol; $col++)
@@ -136,7 +136,6 @@ for($row = $startRow; $row < $highestRow + 1; $row++)
         }
         $studentAns[] = $ithStudent;
 }
-
 
 //Boothe-ian Magic Occurs, returns a binary tree of CART data
 $stats = mineGrades($COG, $COP, $answerKey, $studentAns);
