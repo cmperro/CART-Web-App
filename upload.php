@@ -86,7 +86,7 @@ $startColumn = PHPExcel_Cell::columnIndexFromString($startColumn);
 //Error check if the input cutoff values are allowable
 if ($COG < 0 || $COG > ($highestCol - 7) || strlen($COG) < 1 || !(is_numeric($COG)))
 {
-        echo "Please enter a valid cutoff grade (NOT percentage, but the number), between 0 and ".($highestCol - 7).".<br>";
+        echo "<br>Please enter a valid cutoff grade (NOT percentage, but the number), between 0 and ".($highestCol - 7).".<br><br>";
         echo "<a href='protected.php'>Please try again.</a>";
         exit(1);
 }
