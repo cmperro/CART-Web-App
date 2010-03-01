@@ -130,30 +130,48 @@ for($row = $startRow; $row < $highestRow + 1; $row++)
 }
 
 
-
+//Boothe-ian Magic Occurs, returns a binary tree of CART data
 $stats = mineGrades($COG, $COP, $answerKey, $studentAns);
 
+
+//printAllNodes returns an array with a simple listing of all nodes
+//this is required for DOT
 $test = $stats->printAllNodes();
+
+//printDOT returns an array of dependence statments, i.e. node -> node to show
+//dependence. this is also required for DOT.
 $final = $stats->printDOT();
 
+
+//Create a DOT file in the saved_pngs directory and check to make sure it can be opened
 $DotFile = "saved_pngs/process.dot";
 $fh = fopen($DotFile, 'w') or die("can't open file");
 
+
+//DOT format requires this to be the first line
 $topStatement = "digraph{\n";
 fwrite($fh, $topStatement);
 
+
+//Loop through listing of all Nodes and write them to the DOT file
 for($g = 0; $g < sizeof($test); $g++)
 {
 	fwrite($fh, $test[$g]);
 }
 
+
+//Loop through listing of all node dependencies and write them to the DOT file
 for($c = 0; $c < sizeof($final); $c++)
 {
 	fwrite($fh, $final[$c]);
 }
 
+
+//DOT format requires this to the last line of the file
 $bottomStatement = "}";
 fwrite($fh, $bottomStatement);
+
+//Be a good boy and close the file when done
 fclose($fh);
 
 //create the image file
