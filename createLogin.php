@@ -1,8 +1,9 @@
 <?php
 session_start();
 /**
-* Creates a Login for a user to be stored as administator
-* as long as the username does not already exist
+* Creates a Login for a user to be stored as administator <br> as long as the username does not already exist
+*
+* @package pagelevel-desc
 */ 
 ?>
 

@@ -1,8 +1,9 @@
 <?php
 session_start();
 /**
-* Protected page that makes sure a user is signed in.
-* Allows the process to upload a file to be parsed.
+* Protected page that makes sure a user is signed in. <br> Allows the process to upload a file to be parsed.
+*
+* @package pagelevel-desc
 */
 ?>
 <html>
@@ -28,7 +29,7 @@ if(isset($_SESSION['loggedInAs']))
   <!--AddUser Link for Admin--> 
   <?php if($_SESSION['loggedInAs'] == "admin") echo "<a href='createLogin.php'>add users</a> | "; ?>
 
-  <!--link to signout-->
+  <!--Links to Signout-->
   <a href="signout.php">signout</a>
   </div>
 

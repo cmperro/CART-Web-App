@@ -2,6 +2,8 @@
 /**
 * Runs Algorithm to parse in a Excel Sheet with parameters against <br />
 * uploaded Excel Sheet.
+*
+* @package pagelevel-desc
 */ 
 
 // NOT FOR SHOWING DIRECTLY - THIS IS A LIBRARY - THINGS WILL NOT LOOK
@@ -15,6 +17,11 @@ $AllNodesPrint = array();
 $DOTPrint = array();
 $numeroUno = 0;
 
+/**
+*Declared Class; houses variables
+*
+*@package class
+*/
 class GradeDecisionTree
 {
     public $students = array();
@@ -147,6 +154,8 @@ EOT;
 }
 /**
 * This class extends GradeDecisionTree
+*
+* @package extends
 */ 
 class GradeDecisionTreeInternal extends GradeDecisionTree
 {
