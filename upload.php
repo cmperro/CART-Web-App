@@ -25,10 +25,6 @@ session_start();
 
 $target = "uploaded_spreadsheets/". basename( $_FILES['uploaded']['name']);
 
-//store filename for saving image in graphIt.php
-$_SESSION['filename'] = $_FILES['uploaded']['name'];
-
-
 /**
 * Included Library Information
 *
@@ -161,6 +157,10 @@ fclose($fh);
 //create the image file
 $createPng = "dot saved_pngs/process.dot -T png -o saved_pngs/output.png";
 system($createPng);
+
+//remove xls and dot files
+if(file_exists("saved_pngs/process.dot")) unlink("saved_pngs/process.dot");
+if(file_exists($target)) unlink($target);
 
 //index 0 is width, 1 is height, in pixels
 $imageSize = getimagesize("saved_pngs/output.png");
