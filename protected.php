@@ -23,6 +23,7 @@ if(isset($_SESSION['loggedInAs']))
 {
   ?>
   <div id="top">
+    <div id="links">
   <!--help page-->
   <a href="helpfile.html" target="_blank">help</a> | 
 
@@ -31,6 +32,7 @@ if(isset($_SESSION['loggedInAs']))
 
   <!--Links to Signout-->
   <a href="signout.php">signout</a>
+     </div>
   </div>
 
 <div id="content" style="width:600px;">

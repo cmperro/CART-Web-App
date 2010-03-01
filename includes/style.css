@@ -40,7 +40,14 @@ a, a:link , a:visited, a:active {
 #top {
    text-align:right;
    font-size:10pt;
+   background: url(logo.png);
+   background-repeat: no-repeat;
+   height:27px;
    color: #333366;}
+
+#links {
+   height:10px;
+   padding-top:10px;}
 
 /*style input buttons with go class*/
 .go {

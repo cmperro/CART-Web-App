@@ -25,7 +25,11 @@ function requestAccess() {
 
 <div id="wrapper" style="width:342px;">
 
-<div id="top"><a href="javascript:void(0);" onClick="requestAccess()">request access</a></div>
+<div id="top">
+  <div id="links">
+<a href="javascript:void(0);" onClick="requestAccess()">request access</a>
+  </div>
+</div>
 
 <div id="content" style="width:340px;">
   <div id="holder">

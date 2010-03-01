@@ -16,8 +16,10 @@ session_start();
 
 <div id="wrapper" style="width:502px; margin:25px auto">
 <div id="top">
+  <div id="links">
   <a href="protected.php">input new information</a> | 
   <a href="signout.php">signout</a></div>
+  </div>
 <div id="content" style="width:500px;">
 <div id="holder">
 

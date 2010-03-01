@@ -16,7 +16,9 @@ session_start();
 
 <div id="wrapper" style="width:327px;">
   <div id="top">
+    <div id="links">
     <a href="protected.php">back</a>
+    </div>
   </div>
  
   <div id="content" style="width:325px;">
