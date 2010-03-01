@@ -23,10 +23,15 @@ session_start();
   <a href="protected.php">input new information</a> | 
   <a href="signout.php">signout</a></div>
   </div>
+
+<?php } ?>
+
 <div id="content" style="width:500px;">
 <div id="holder">
 
 <?php
+
+if( isset($_SESSION['loggedInAs']) ) { 
 
 $target = "uploaded_spreadsheets/". basename( $_FILES['uploaded']['name']);
 
@@ -203,7 +208,7 @@ $scaledHeight = floor($imageSize[1] / 5);
 </div><!--close content-->
 <?php 
 }
-else echo "You must <a href='index.php'>sign in</a>."; 
+else echo "You must <a href='index.php'>sign in</a> to view this content."; 
 ?>
 </div><!--close wrapper-->
 
