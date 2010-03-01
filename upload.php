@@ -15,6 +15,9 @@ session_start();
 
 
 <div id="wrapper" style="width:502px; margin:25px auto">
+
+<?php if( isset($_SESSION['loggedInAs']) ) { ?>
+
 <div id="top">
   <div id="links">
   <a href="protected.php">input new information</a> | 
@@ -195,8 +198,13 @@ $scaledHeight = floor($imageSize[1] / 5);
 <img src="saved_pngs/output.png" style="width:<?php echo $scaledWidth; ?>px; height:<?php echo $scaledHeight; ?>px; border:2px solid #cccccc" onMouseOver="this.style.border='2px solid #339999'" onMouseOut="this.style.border='2px solid #cccccc'" />
 </a><br>
 
+
 </div><!--close holder-->
 </div><!--close content-->
+<?php 
+}
+else echo "You must <a href='index.php'>sign in</a>."; 
+?>
 </div><!--close wrapper-->
 
 </body>
