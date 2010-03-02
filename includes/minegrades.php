@@ -68,17 +68,10 @@ EOT;
  
         $statement = preg_replace("/\n/", "<br>" . $lead, $lead . $this->message());
         $holder = explode("<br>", $statement);
-	//print_r($holder);
-	//echo "<br>";
-	//echo "<pre>PRE"; print_r($toPrint); echo "</pre>";
 	$toPrint[] = $holder;
-	//echo "<pre>POST"; print_r($toPrint); echo "</pre>";
-	//print_r($toPrint);
-	//echo "<br> <br>";
  
         if ($this->right != null) $this->right->printout($indent+2);
         if ($this->wrong != null) $this->wrong->printout($indent+2);
-	//echo "<pre>"; print_r($toPrint); echo "</pre>";
 
 	return $toPrint;
     }
@@ -103,35 +96,26 @@ EOT;
 	global $numeroUno;
 	if($numeroUno != 0)
 	{
-		//echo '"';
 		$statement = '"';
 	        $statement .= preg_replace("/\n/", '\n', $this->message());
 		$statement .= '";';
 		$DOTPrint [] = $statement;
-		//echo '";';
-		//echo '<br>';
 	}
 	$numeroUno++;
         if ($this->right != null)
 	{
-		//echo '"';
 		$statement = '"';
         	$statement .= preg_replace("/\n/", '\n', $this->message());
 		$statement .= '"->';
 		$DOTPrint [] = $statement;
-		//echo '"';
-		//echo "->";
 		$this->right->printDOT();
 	}
         if ($this->wrong != null)
 	{
-		//echo '"';
 		$statement = '"';
         	$statement .= preg_replace("/\n/", '\n', $this->message());
 		$statement .= '"->';
 		$DOTPrint [] = $statement;
-		//echo '"';
-		//echo "->";
 		$this->wrong->printDOT();
 	}
 	return $DOTPrint;	
@@ -140,13 +124,10 @@ EOT;
     public function printAllNodes()
     {
 	global $AllNodesPrint;
-	//echo '"';
 	$statement = '"';
         $statement .= preg_replace("/\n/", '\n', $this->message());
 	$statement .= '";';
 	$AllNodesPrint [] = $statement;
-	//echo '";';
-	//echo "<br>";
         if ($this->right != null) $this->right->printAllNodes();
         if ($this->wrong != null) $this->wrong->printAllNodes();
 	return $AllNodesPrint;

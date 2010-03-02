@@ -181,6 +181,8 @@ fwrite($fh, $bottomStatement);
 //Be a good boy and close the file when done
 fclose($fh);
 
+
+
 //create the image file
 $createPng = "dot saved_pngs/process.dot -T png -o saved_pngs/output.png";
 system($createPng);
